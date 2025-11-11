@@ -41,9 +41,51 @@ pan-container {
   position: absolute;
   cursor: pointer;
   -webkit-user-drag: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.door-text {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .door-04 {
-  left: 572px;
-  top: 104px;
+  left: 857px;
+  top: 290px;
+  width: 65px;
+  height: 64px;
+  background: url('../assets/images/door-04-857-290-65-64.webp') no-repeat
+    center/contain;
+
+  &.open {
+    left: calc(857px - 64px);
+    transition: left 1.2s ease-out;
+  }
+}
+
+.door-content {
+  position: absolute;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  box-shadow: inset -2px 4px 5px rgba(0, 0, 0, 0.3);
+}
+
+.door-04-content {
+  left: 857px;
+  top: 290px;
+  width: 65px;
+  height: 64px;
+  background: url('../assets/images/record-04-small.webp') no-repeat
+    center/contain;
+  transition: background-size 1.3s ease-out;
+  background-size: 100% 100%;
+
+  &:hover {
+    background-size: 108% 108%;
+  }
 }
