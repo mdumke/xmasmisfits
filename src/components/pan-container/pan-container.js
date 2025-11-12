@@ -37,20 +37,20 @@ class PanContainer extends HTMLElement {
   }
 
   registerListeners () {
-    this.$container.addEventListener('pointerdown', this.onPointerDown)
-    this.$container.addEventListener('pointerleave', this.onPointerLeave)
-    this.$container.addEventListener('pointerup', this.onPointerUp)
-    this.$container.addEventListener('pointermove', this.onPointerMove)
+    this.$container.addEventListener('pointerdown', this.startPan)
+    this.$container.addEventListener('pointerleave', this.stopPan)
+    this.$container.addEventListener('pointerup', this.stopPan)
+    this.$container.addEventListener('pointermove', this.updatePan)
   }
 
   removeListeners () {
-    this.$container.removeEventListener('pointerdown', this.onPointerDown)
-    this.$container.removeEventListener('pointerleave', this.onPointerLeave)
-    this.$container.removeEventListener('pointerup', this.onPointerUp)
-    this.$container.removeEventListener('pointermove', this.onPointerMove)
+    this.$container.removeEventListener('pointerdown', this.startPan)
+    this.$container.removeEventListener('pointerleave', this.stopPan)
+    this.$container.removeEventListener('pointerup', this.stopPan)
+    this.$container.removeEventListener('pointermove', this.updatePan)
   }
 
-  onPointerDown = e => {
+  startPan = e => {
     if (e.target.closest('[data-interactive]')) return
 
     this.isDown = true
@@ -62,8 +62,9 @@ class PanContainer extends HTMLElement {
     this.$container.setPointerCapture(e.pointerId)
   }
 
-  onPointerMove = e => {
+  updatePan = e => {
     if (!this.isDown) return
+
     e.preventDefault()
     const x = e.clientX
     const y = e.clientY
@@ -73,13 +74,9 @@ class PanContainer extends HTMLElement {
     this.$container.scrollTop = this.scrollTop - walkY
   }
 
-  onPointerLeave = e => {
+  stopPan = e => {
     this.isDown = false
-    this.$container.releasePointerCapture(e.pointerId)
-  }
-
-  onPointerUp = e => {
-    this.isDown = false
+    this.$container.classList.remove('active')
     this.$container.releasePointerCapture(e.pointerId)
   }
 }
