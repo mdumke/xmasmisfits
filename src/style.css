@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -16,6 +17,7 @@ html {
   align-items: center;
   justify-content: center;
   cursor: default;
+  background-color: #222;
 }
 
 pan-container {
@@ -32,9 +34,9 @@ pan-container {
 
 .pan-content {
   position: relative;
-  background: url('../assets/images/platte.webp');
-  width: 1500px;
-  height: 2265px;
+  background: url('../assets/images/dummy-map.webp');
+  width: 1441px;
+  height: 881px;
 }
 
 .door {
@@ -44,26 +46,23 @@ pan-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid white;
-  border-radius: 5px;
 }
 
 .door-text {
-  color: white;
+  color: #333;
   font-size: 32px;
   font-weight: bold;
 }
 
 .door-04 {
-  left: 857px;
-  top: 290px;
-  width: 65px;
-  height: 64px;
-  background: url('../assets/images/door-04-857-290-65-64.webp') no-repeat
-    center/contain;
+  left: 820px;
+  top: 540px;
+  width: 91px;
+  height: 131px;
+  background: url('../assets/images/door-91-131.png') no-repeat center;
 
   &.open {
-    left: calc(857px - 64px);
+    left: calc(820px - 91px);
     transition: left 1.2s ease-out;
   }
 }
@@ -72,20 +71,20 @@ pan-container {
   position: absolute;
   cursor: pointer;
   -webkit-user-drag: none;
-  box-shadow: inset -2px 4px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: inset -3px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .door-04-content {
-  left: 857px;
-  top: 290px;
-  width: 65px;
-  height: 64px;
-  background: url('../assets/images/record-04-small.webp') no-repeat
-    center/contain;
-  transition: background-size 1.3s ease-out;
+  left: 820px;
+  top: 540px;
+  width: 91px;
+  height: 131px;
+  background: url('../assets/images/record-04-vertical.webp') center no-repeat;
+  transition: background-size 0.9s ease-out;
   background-size: 100% 100%;
+  border-radius: 14px;
 
   &:hover {
-    background-size: 108% 108%;
+    background-size: 106% 106%;
   }
 }
