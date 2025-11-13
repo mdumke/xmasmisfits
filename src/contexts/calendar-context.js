@@ -1,44 +1,33 @@
 import { ui } from '../ui.js'
 
 export class CalendarContext {
+  $calendar = null
+
   enter () {
-    ui.renderTemplate('#calendar-screen')
+    this.render()
     this.$calendar = ui.selectElement('#calendar')
-    this.$calendar.style.backgroundImage = "url('images/dummy-map.webp')"
-    this.$door04 = ui.selectElement('#door-04')
-    this.$door04.style.backgroundImage = "url('images/door-04-91-131.png')"
-    this.registerListeners()
+    this.$calendar.addEventListener('click', this.onCalendarClick)
   }
 
   exit () {
-    this.removeListeners()
+    this.$calendar.removeEventListener('click', this.onCalendarClick)
   }
 
-  onDoor04Click = () => {
-    console.log('door 04 clicked')
-    document.getElementById('door-04').classList.add('open')
+  render () {
+    ui.renderTemplate('#calendar-screen')
+    ui.renderCalendarAssets()
+    ui.selectElement('#pan-container').scrollToCenter()
   }
 
-  onDoor04ContentClick = () => {
-    console.log('play door 04 content')
-  }
+  onCalendarClick = event => {
+    const $door = event.target.closest('[data-door]')
+    if ($door) {
+      return ui.openDoor($door)
+    }
 
-  registerListeners () {
-    ui.selectElement('#door-04').addEventListener('click', this.onDoor04Click)
-    ui.selectElement('#door-04-content').addEventListener(
-      'click',
-      this.onDoor04ContentClick
-    )
-  }
-
-  removeListeners () {
-    ui.selectElement('#door-04').removeEventListener(
-      'click',
-      this.onDoor04Click
-    )
-    ui.selectElement('#door-04-content').removeEventListener(
-      'click',
-      this.onDoor04ContentClick
-    )
+    const $content = event.target.closest('[data-content]')
+    if ($content) {
+      console.log(`play ${$content.id}`)
+    }
   }
 }

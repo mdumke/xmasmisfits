@@ -2,18 +2,25 @@ const ASSET_MAPPING_PATH = 'assets.json'
 const IMAGE_BASE_PATH = 'images'
 
 class AssetLoader {
-  assetMapping = null
+  _assetMapping = null
+
+  get assetMapping () {
+    if (!this._assetMapping) {
+      throw new Error('Asset mapping not loaded yet')
+    }
+    return Object.freeze(this._assetMapping)
+  }
 
   // Load calendar assets with progress callback
   // onProgress: function(percent: number) => void
   async preloadCalendarAssets (onProgress) {
-    if (!this.assetMapping) {
+    if (!this._assetMapping) {
       await this.loadAssetMapping()
     }
 
     const imageFilenames = [
-      this.assetMapping.map.filename,
-      ...this.assetMapping.doors.map(door => door.filename)
+      this._assetMapping.background.filename,
+      ...this._assetMapping.doors.map(door => door.filename)
     ]
 
     assetLoader.preloadImages(imageFilenames, (loaded, total) => {
@@ -47,7 +54,7 @@ class AssetLoader {
 
   async loadAssetMapping () {
     const response = await fetch(ASSET_MAPPING_PATH)
-    this.assetMapping = await response.json()
+    this._assetMapping = await response.json()
   }
 }
 

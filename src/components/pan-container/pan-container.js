@@ -5,6 +5,15 @@
 
 import { template } from './template.js'
 
+/**
+ * @element pan-container
+ * @summary A container that allows panning of larger content by click-and-drag.
+ *
+ * Elements within the container that have the `data-interactive`
+ * attribute will be exempt from the drag-to-pan operation.
+ * This allows interactive child elements (such as buttons, links, or inputs)
+ * to receive pointer events without triggering panning.
+ */
 class PanContainer extends HTMLElement {
   isDown = false
   startX = 0

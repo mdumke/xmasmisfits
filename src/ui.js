@@ -1,3 +1,4 @@
+import { assetLoader } from './asset-loader.js'
 class UI {
   $app = null
 
@@ -10,6 +11,65 @@ class UI {
     const clone = template.content.cloneNode(true)
     this.$app.innerHTML = ''
     this.$app.appendChild(clone)
+  }
+
+  renderCalendarAssets () {
+    const assets = assetLoader.assetMapping
+    const $calendar = ui.selectElement('#calendar')
+    this.renderBackground($calendar, assets)
+    this.renderDoors($calendar, assets)
+  }
+
+  renderBackground ($calendar, { background }) {
+    $calendar.style.backgroundImage = `url('images/${background.filename}')`
+    $calendar.style.width = `${background.width}px`
+    $calendar.style.height = `${background.height}px`
+  }
+
+  renderDoors ($calendar, { doors }) {
+    $calendar.innerHTML = ''
+    doors.forEach((door, i) => {
+      $calendar.appendChild(this.buildContentElement(door))
+      $calendar.appendChild(this.buildDoorElement(door, i))
+    })
+  }
+
+  buildContentElement (door) {
+    const $content = document.createElement('div')
+    $content.classList.add('door-content')
+    $content.id = `${door.id}-content`
+    $content.style.width = '91px'
+    $content.style.height = '131px'
+    $content.style.top = `${door.position.y}px`
+    $content.style.left = `${door.position.x}px`
+    $content.dataset.interactive = ''
+    $content.dataset.content = ''
+    return $content
+  }
+
+  buildDoorElement (door, i) {
+    const $door = document.createElement('div')
+    $door.classList.add('door')
+    $door.id = door.id
+    $door.style.width = '91px'
+    $door.style.height = '131px'
+    $door.style.top = `${door.position.y}px`
+    $door.style.left = `${door.position.x}px`
+    $door.style.backgroundImage = `url('images/${door.filename}')`
+    $door.dataset.interactive = ''
+    $door.dataset.door = ''
+    const $text = document.createElement('div')
+    $text.classList.add('door-text')
+    $text.textContent = i + 1
+    $door.appendChild($text)
+    return $door
+  }
+
+  openDoor ($door) {
+    const currentLeft = parseInt($door.style.left, 10) || 0
+    $door.style.left = `${currentLeft - 81}px`
+    $door.removeAttribute('data-interactive')
+    $door.removeAttribute('data-door')
   }
 
   selectElement (selector) {
