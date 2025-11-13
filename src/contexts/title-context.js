@@ -17,13 +17,13 @@ export class TitleContext {
     this.$startBtn.addEventListener('click', this.onStartClick)
   }
 
-  onLoadingProgress = (loaded, total) => {
-    const progress = total === 0 ? 0 : Math.floor((loaded / total) * 100)
-    this.$progressBar.textContent = `${progress}%`
-    this.assetsLoaded = loaded === total
+  onLoadingProgress = progress => {
+    this.$progressBar.setAttribute('value', progress)
+    this.assetsLoaded = progress >= 100
 
     if (this.assetsLoaded && this.autoSwitch) {
-      this.goToCalendar()
+      // Small delay to let the user see 100% completion
+      setTimeout(this.goToCalendar, 800)
     }
   }
 
@@ -35,13 +35,13 @@ export class TitleContext {
     this.assetsLoaded ? this.goToCalendar() : this.waitForPreload()
   }
 
-  waitForPreload () {
+  waitForPreload = () => {
     this.$startBtn.classList.add('hide')
     this.$progressBar.classList.remove('hide')
     this.autoSwitch = true
   }
 
-  goToCalendar () {
+  goToCalendar = () => {
     contextManager.change(new CalendarContext())
   }
 }
