@@ -77,7 +77,8 @@ html {
 
     &::part(bar) {
       background-color: #aaccfc;
-      transition: width 0.8s ease-out;
+      transition: width 1.2s ease-out;
+      border-radius: 8px;
     }
   }
 }
