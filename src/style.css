@@ -10,6 +10,10 @@ html {
   font-family: system-ui;
 }
 
+.hide {
+  display: none;
+}
+
 .app {
   width: 100%;
   height: 100vh;
@@ -45,7 +49,7 @@ html {
   font-size: 16px;
   text-align: center;
 
-  button {
+  .start-button {
     margin-top: 250px;
     padding: 12px 24px;
     font-size: 14px;
@@ -70,7 +74,7 @@ html {
 
 .pan-content {
   position: relative;
-  background: url('../assets/images/dummy-map.webp');
+  /* background: url('../assets/images/dummy-map.webp'); */
   width: 1441px;
   height: 881px;
 }
@@ -95,10 +99,12 @@ html {
   top: 540px;
   width: 91px;
   height: 131px;
-  background: url('../assets/images/door-91-131.png') no-repeat center;
+  /* background-image: url('../assets/images/door-04-91-131.png'); */
+  background-repeat: no-repeat;
+  background-position: center;
 
   &.open {
-    left: calc(820px - 91px);
+    left: calc(820px - 91px + 15px);
     transition: left 1.2s ease-out;
   }
 }

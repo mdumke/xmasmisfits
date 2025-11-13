@@ -3,6 +3,10 @@ import { ui } from '../ui.js'
 export class CalendarContext {
   enter () {
     ui.renderTemplate('#calendar-screen')
+    this.$calendar = ui.selectElement('#calendar')
+    this.$calendar.style.backgroundImage = "url('images/dummy-map.webp')"
+    this.$door04 = ui.selectElement('#door-04')
+    this.$door04.style.backgroundImage = "url('images/door-04-91-131.png')"
     this.registerListeners()
   }
 

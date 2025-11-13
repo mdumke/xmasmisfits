@@ -1,0 +1,65 @@
+{
+  "map": {
+    "filename": "dummy-map.webp",
+    "width": 1441,
+    "height": 881
+  },
+  "doors": [
+    {
+      "id": "door-01",
+      "filename": "door-01-91-131.png",
+      "position": {
+        "x": 60,
+        "y": 60
+      }
+    },
+    {
+      "id": "door-02",
+      "filename": "door-02-91-131.png",
+      "position": {
+        "x": 50,
+        "y": 710
+      }
+    },
+    {
+      "id": "door-03",
+      "filename": "door-03-91-131.png",
+      "position": {
+        "x": 350,
+        "y": 430
+      }
+    },
+    {
+      "id": "door-04",
+      "filename": "door-04-91-131.png",
+      "position": {
+        "x": 820,
+        "y": 540
+      }
+    },
+    {
+      "id": "door-05",
+      "filename": "door-05-91-131.png",
+      "position": {
+        "x": 950,
+        "y": 150
+      }
+    },
+    {
+      "id": "door-06",
+      "filename": "door-06-91-131.png",
+      "position": {
+        "x": 1310,
+        "y": 30
+      }
+    },
+    {
+      "id": "door-07",
+      "filename": "door-07-91-131.png",
+      "position": {
+        "x": 1310,
+        "y": 710
+      }
+    }
+  ]
+}

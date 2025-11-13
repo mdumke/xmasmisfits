@@ -15,13 +15,14 @@
     <div class="screen title-screen">
       <h1>Advent 2025</h1>
       <button id="start-button" class="start-button">Start</button>
+      <div id="progress-bar" class="start-button hide">0</div>
     </div>
   </template>
 
   <template id="calendar-screen">
     <div class="screen calendar-screen">
       <pan-container class="pan-container">
-        <div class="pan-content">
+        <div id="calendar" class="pan-content">
           <div data-interactive id="door-04-content" class="door-content door-04-content"></div>
           <div data-interactive id="door-04" class="door door-04">
             <div class="door-text">4</div>
