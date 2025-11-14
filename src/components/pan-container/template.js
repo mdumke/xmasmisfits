@@ -1,4 +1,4 @@
-import css from 'bundle-text:./pan-container.css'
+import * as css from 'bundle-text:./pan-container.css'
 
 export const template = document.createElement('template')
 

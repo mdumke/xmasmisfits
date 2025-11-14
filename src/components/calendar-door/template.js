@@ -1,4 +1,4 @@
-import css from 'bundle-text:./calendar-door.css'
+import * as css from 'bundle-text:./calendar-door.css'
 
 export const template = document.createElement('template')
 

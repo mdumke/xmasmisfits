@@ -1,4 +1,4 @@
-import css from 'bundle-text:./progress-bar.css'
+import * as css from 'bundle-text:./progress-bar.css'
 
 export const template = document.createElement('template')
 
