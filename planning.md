@@ -7,6 +7,7 @@
 - [x] create title state
 - [x] open multiple doors
 - [ ] implement content loading strategy
+- [ ] estimate network connection speed
 - [ ] restrict door access
 - [ ] play media items
 - [ ] door creaks as it moves over
