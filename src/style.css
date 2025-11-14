@@ -116,7 +116,7 @@ html {
     -webkit-user-drag: none;
     box-shadow: inset -3px 2px 6px rgba(0, 0, 0, 0.3);
     border-radius: 14px;
-    background-image: url('../assets/images/record-04-vertical.webp');
+    /* background-image: url('../assets/images/record-04-vertical.webp'); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;

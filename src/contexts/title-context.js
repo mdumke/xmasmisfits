@@ -10,10 +10,6 @@ export class TitleContext {
   $startBtn = null
   $progressBar = null
 
-  get assetsLoaded () {
-    return this.loadingProgress >= 100
-  }
-
   enter () {
     ui.renderTemplate('#title-screen')
     this.$startBtn = ui.selectElement('#start-button')
@@ -23,26 +19,28 @@ export class TitleContext {
     assetLoader.run()
   }
 
-  onLoadingProgress = (stage, progress) => {
+  onLoadingProgress = (stage, progress, done) => {
     if (stage !== STAGE_CALENDAR_ASSETS) return
 
     this.loadingProgress = progress
     if (!this.autoSwitch) return
 
     this.updateProgressBar()
-    if (this.assetsLoaded) {
-      // Small delay to let users see 100% completion
-      setTimeout(this.goToCalendar, 1200)
-    }
+    if (!done) return
+
+    assetLoader.unregisterProgressCallback(this.key)
+    // Small delay to let users see 100% completion
+    setTimeout(this.goToCalendar, 1200)
   }
 
   exit () {
     this.$startBtn.removeEventListener('click', this.onStartClick)
-    assetLoader.unregisterProgressCallback(this.key)
   }
 
   onStartClick = () => {
-    this.assetsLoaded ? this.goToCalendar() : this.waitForPreload()
+    assetLoader.calendarAssetsReady
+      ? this.goToCalendar()
+      : this.waitForPreload()
   }
 
   waitForPreload = () => {

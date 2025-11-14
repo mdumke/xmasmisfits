@@ -1,14 +1,17 @@
 const ASSET_MAPPING_PATH = 'assets.json'
 const IMAGE_BASE_PATH = 'images'
 
-export const STAGE_INITIAL = 'initial'
-export const STAGE_CALENDAR_ASSETS = 'calendar-assets'
+export const STAGE_INITIAL = 'stage-initial'
+export const STAGE_CALENDAR_ASSETS = 'stage-calendar-assets'
+export const STAGE_ACTIVE_PACKAGES = 'stage-active-packages'
+export const STAGE_FUTURE_PACKAGES = 'stage-future-packages'
+export const STAGE_COMPLETE = 'stage-complete'
 
 class AssetLoader {
+  loadingStage = STAGE_INITIAL
   progress = 0
   progressCallbacks = []
-  loadingStage = STAGE_INITIAL
-  calendarAssetsReady = false
+
   _assetMapping = null
 
   get assetMapping () {
@@ -18,9 +21,23 @@ class AssetLoader {
     return Object.freeze(this._assetMapping)
   }
 
+  get calendarAssetsReady () {
+    return [
+      STAGE_ACTIVE_PACKAGES,
+      STAGE_FUTURE_PACKAGES,
+      STAGE_COMPLETE
+    ].includes(this.loadingStage)
+  }
+
+  get activePackagesReady () {
+    return [STAGE_FUTURE_PACKAGES, STAGE_COMPLETE].includes(this.loadingStage)
+  }
+
   async run () {
     await this.loadAssetMapping()
     await this.preloadCalendarAssets()
+    await this.preloadActivePackages()
+    this.loadingStage = STAGE_COMPLETE
   }
 
   registerProgressCallback (key, cb) {
@@ -35,7 +52,7 @@ class AssetLoader {
   }
 
   // Load calendar assets with progress callback
-  // onProgress: function(percent: number) => void
+  // onProgress: function(stage, percent, done) => void
   async preloadCalendarAssets () {
     this.loadingStage = STAGE_CALENDAR_ASSETS
 
@@ -44,16 +61,28 @@ class AssetLoader {
       ...this._assetMapping.doors.map(door => door.filename)
     ]
 
-    assetLoader.preloadImages(imageFilenames, (loaded, total) => {
+    await assetLoader.preloadImages(imageFilenames, (loaded, total) => {
       const progress = total === 0 ? 0 : Math.floor((loaded / total) * 100)
       this.progress = progress
       this.progressCallbacks.forEach(({ cb }) =>
-        cb(this.loadingStage, progress)
+        cb(this.loadingStage, progress, progress === 100)
       )
+    })
+  }
 
-      if (progress >= 100) {
-        this.calendarAssetsReady = true
-      }
+  async preloadActivePackages () {
+    this.loadingStage = STAGE_ACTIVE_PACKAGES
+
+    const imageFilenames = this._assetMapping.doors.map(
+      ({ packageId }) => this._assetMapping.packages[packageId]?.filename
+    )
+
+    await assetLoader.preloadImages(imageFilenames, (loaded, total) => {
+      const progress = total === 0 ? 0 : Math.floor((loaded / total) * 100)
+      this.progress = progress
+      this.progressCallbacks.forEach(({ cb }) =>
+        cb(this.loadingStage, progress, progress === 100)
+      )
     })
   }
 

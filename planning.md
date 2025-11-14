@@ -7,15 +7,17 @@
 - [x] create title state
 - [x] open multiple doors
 - [ ] implement content loading strategy
+- [ ] restrict door access
 - [ ] play media items
 - [ ] door creaks as it moves over
 - [ ] loudness / speaker test
 - [ ] store media in local storage
-- [ ] strategy for contact / copyright
+- [ ] strategy for contact / copyright / cookies
 - [ ] error handling
 - [ ] create a PWA
 - [ ] js-disabled message
 - [ ] audio: loudness adjustments
+- [ ] optimize media for download
 
 ## bugs
 

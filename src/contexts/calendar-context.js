@@ -1,12 +1,15 @@
+import { assetLoader, STAGE_ACTIVE_PACKAGES } from '../asset-loader.js'
 import { ui } from '../ui.js'
 
 export class CalendarContext {
+  key = 'calendar-context'
   $calendar = null
 
   enter () {
     this.render()
     this.$calendar = ui.selectElement('#calendar')
     this.$calendar.addEventListener('click', this.onCalendarClick)
+    this.handlePackages()
   }
 
   exit () {
@@ -29,5 +32,19 @@ export class CalendarContext {
     if ($content) {
       console.log(`play ${$content.id}`)
     }
+  }
+
+  handlePackages () {
+    assetLoader.activePackagesReady
+      ? ui.insertActivePackages()
+      : assetLoader.registerProgressCallback(this.key, this.onLoadingProgress)
+  }
+
+  onLoadingProgress = (stage, _, done) => {
+    if (stage !== STAGE_ACTIVE_PACKAGES) return
+    if (!done) return
+
+    assetLoader.unregisterProgressCallback(this.key)
+    ui.insertActivePackages()
   }
 }

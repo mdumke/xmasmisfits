@@ -7,59 +7,81 @@
   "doors": [
     {
       "id": "door-01",
+      "label": "1",
       "filename": "door-01-91-131.png",
       "position": {
         "x": 60,
         "y": 60
-      }
+      },
+      "packageId": "monkey"
     },
     {
       "id": "door-02",
+      "label": "2",
       "filename": "door-02-91-131.png",
       "position": {
         "x": 50,
         "y": 710
-      }
+      },
+      "packageId": "derya"
     },
     {
       "id": "door-03",
+      "label": "3",
       "filename": "door-03-91-131.png",
       "position": {
         "x": 350,
         "y": 430
-      }
+      },
+      "packageId": "monkey"
     },
     {
       "id": "door-04",
+      "label": "4",
       "filename": "door-04-91-131.png",
       "position": {
         "x": 820,
         "y": 540
-      }
+      },
+      "packageId": "monkey"
     },
     {
       "id": "door-05",
+      "label": "5",
       "filename": "door-05-91-131.png",
       "position": {
         "x": 950,
         "y": 150
-      }
+      },
+      "packageId": "derya"
     },
     {
       "id": "door-06",
+      "label": "6",
       "filename": "door-06-91-131.png",
       "position": {
         "x": 1310,
         "y": 30
-      }
+      },
+      "packageId": "monkey"
     },
     {
       "id": "door-07",
+      "label": "7",
       "filename": "door-07-91-131.png",
       "position": {
         "x": 1310,
         "y": 710
-      }
+      },
+      "packageId": "derya"
     }
-  ]
+  ],
+  "packages": {
+    "derya": {
+      "filename": "derya-vertical.webp"
+    },
+    "monkey": {
+      "filename": "record-04-vertical.webp"
+    }
+  }
 }

@@ -28,13 +28,20 @@ class UI {
 
   renderDoors ($calendar, { doors }) {
     $calendar.innerHTML = ''
-    doors.forEach((door, i) => {
-      $calendar.appendChild(this.buildContentElement(door))
-      $calendar.appendChild(this.buildDoorElement(door, i))
+    doors.forEach(door => $calendar.appendChild(this.buildDoorElement(door)))
+  }
+
+  insertActivePackages () {
+    const assets = assetLoader.assetMapping
+    assets.doors.forEach(door => {
+      const $door = ui.selectElement(`#${door.id}`)
+      const filename = assets.packages[door.packageId]?.filename
+      const $content = this.buildContentElement(door, filename)
+      $door.parentNode.insertBefore($content, $door)
     })
   }
 
-  buildContentElement (door) {
+  buildContentElement (door, imageFilename) {
     const $content = document.createElement('div')
     $content.classList.add('door-content')
     $content.id = `${door.id}-content`
@@ -42,12 +49,13 @@ class UI {
     $content.style.height = '131px'
     $content.style.top = `${door.position.y}px`
     $content.style.left = `${door.position.x}px`
+    $content.style.backgroundImage = `url('images/${imageFilename}')`
     $content.dataset.interactive = ''
     $content.dataset.content = ''
     return $content
   }
 
-  buildDoorElement (door, i) {
+  buildDoorElement (door) {
     const $door = document.createElement('div')
     $door.classList.add('door')
     $door.id = door.id
@@ -60,7 +68,7 @@ class UI {
     $door.dataset.door = ''
     const $text = document.createElement('div')
     $text.classList.add('door-text')
-    $text.textContent = i + 1
+    $text.textContent = door.label || 'N/A'
     $door.appendChild($text)
     return $door
   }
