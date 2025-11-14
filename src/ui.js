@@ -72,6 +72,11 @@ class UI {
     $door.removeAttribute('data-door')
   }
 
+  updateProgressBar ($bar, progress, minValue = 2) {
+    // showing at least minValue indicates activity
+    $bar.setAttribute('value', Math.max(progress, minValue))
+  }
+
   selectElement (selector) {
     const $el = document.querySelector(selector)
     if (!$el) {

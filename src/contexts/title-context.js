@@ -5,10 +5,14 @@ import { CalendarContext } from './calendar-context.js'
 
 export class TitleContext {
   key = 'title-context'
-  assetsLoaded = false
+  loadingProgress = 0
   autoSwitch = false
   $startBtn = null
   $progressBar = null
+
+  get assetsLoaded () {
+    return this.loadingProgress >= 100
+  }
 
   enter () {
     ui.renderTemplate('#title-screen')
@@ -22,12 +26,12 @@ export class TitleContext {
   onLoadingProgress = (stage, progress) => {
     if (stage !== STAGE_CALENDAR_ASSETS) return
 
-    // Ensure the progress bar shows at least 2% to indicate activity
-    this.$progressBar.setAttribute('value', Math.max(progress, 2))
-    this.assetsLoaded = progress >= 100
+    this.loadingProgress = progress
+    if (!this.autoSwitch) return
 
-    if (this.assetsLoaded && this.autoSwitch) {
-      // Small delay to let the user see 100% completion
+    this.updateProgressBar()
+    if (this.assetsLoaded) {
+      // Small delay to let users see 100% completion
       setTimeout(this.goToCalendar, 1200)
     }
   }
@@ -45,9 +49,16 @@ export class TitleContext {
     this.$startBtn.classList.add('hide')
     this.$progressBar.classList.remove('hide')
     this.autoSwitch = true
+
+    // give the bar a chance to render with width 0 first to enable transition
+    setTimeout(this.updateProgressBar.bind(this), 0)
   }
 
   goToCalendar = () => {
     contextManager.change(new CalendarContext())
+  }
+
+  updateProgressBar () {
+    ui.updateProgressBar(this.$progressBar, this.loadingProgress)
   }
 }

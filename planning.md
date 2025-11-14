@@ -5,19 +5,23 @@
 - [x] pan image
 - [x] open a single door
 - [x] create title state
+- [x] open multiple doors
 - [ ] implement content loading strategy
-- [ ] open multiple doors
+- [ ] play media items
 - [ ] door creaks as it moves over
 - [ ] loudness / speaker test
 - [ ] store media in local storage
 - [ ] strategy for contact / copyright
 - [ ] error handling
+- [ ] create a PWA
 - [ ] js-disabled message
 - [ ] audio: loudness adjustments
 
 ## bugs
 
 - [x] remove active flag after usage
+- [x] allow progress bar an initial transition
+- [ ] fix flickering before calendar rendering
 
 ## assets
 
@@ -40,7 +44,7 @@
     - clicks
     - ambience
 
-- doors:
+- packages:
     - music + images + info
 ```
 
