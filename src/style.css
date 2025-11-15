@@ -92,35 +92,7 @@ html {
 .calendar {
   position: relative;
 
-  calendar-door::part(label-container) {
-    background-color: #fff;
-    color: #333;
-  }
-
   calendar-door::part(door-content) {
-    box-shadow: inset -3px 2px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 14px;
-    background-size: 100% 100%;
-    transition: background-size 0.9s ease-out;
-
-    &:hover {
-      background-size: 106% 106%;
-    }
-  }
-
-  .door-content {
-    position: absolute;
-    cursor: pointer;
-    -webkit-user-drag: none;
-    box-shadow: inset -3px 2px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 14px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    transition: background-size 0.9s ease-out;
-
-    &:hover {
-      background-size: 106% 106%;
-    }
+    border-radius: 15px;
   }
 }
