@@ -7,8 +7,8 @@
 - [x] create title state
 - [x] open multiple doors
 - [x] support yt videos
+- [x] play-btn on the door content
 - [ ] implement content loading strategy
-- [ ] play-btn on the door content
 - [ ] build the background completely before lifting
 - [ ] remember which doors are open
 - [ ] snow animations
@@ -18,7 +18,6 @@
 - [ ] HTTP 2
 - [ ] door creaks as it moves over
 - [ ] loudness / speaker test
-- [ ] store media in local storage
 - [ ] strategy for contact / copyright / cookies
 - [ ] error handling
 - [ ] create a PWA
@@ -30,8 +29,8 @@
 
 - [x] remove active flag after usage
 - [x] allow progress bar an initial transition
+- [x] provide fallback if thumnails not yet loaded
 - [ ] fix flickering before calendar rendering
-- [ ] provide fallback if thumnails not loaded
 - [ ] red background when image is smaller than screen
 
 ## assets

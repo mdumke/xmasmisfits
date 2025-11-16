@@ -105,6 +105,7 @@ class CalendarDoor extends HTMLElement {
   updatePackage () {
     const imgSrc = this.packageConfig.thumbnail
     this.$doorContent.style.backgroundImage = `url('images/${imgSrc}')`
+    this.$doorContent.querySelector('.play-icon').classList.remove('hide')
   }
 
   openDoor () {
