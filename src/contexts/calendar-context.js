@@ -51,7 +51,7 @@ export class CalendarContext {
       const $door = ui.selectElement(`#${door.id}`)
       const pkg = assetLoader.assetMapping.packages[door.packageId]
       $door.packageConfig = pkg
-      $door.setAttribute('preload', 'true')
+      // $door.setAttribute('preload', 'true')
     })
   }
 

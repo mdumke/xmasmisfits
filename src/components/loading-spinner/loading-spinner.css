@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  --spinner-width: 3px;
+  --spinner-size: 30px;
+  --spinner-color: #555;
+  --spinner-background-color: #f3f3f3;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  border: var(--spinner-width) solid var(--spinner-background-color);
+  border-top: var(--spinner-width) solid var(--spinner-color);
+  border-radius: 50%;
+  animation: spin 2500ms linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

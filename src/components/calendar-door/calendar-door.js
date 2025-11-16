@@ -4,6 +4,7 @@
  *
  */
 
+import { assetLoader } from '../../asset-loader.js'
 import { template } from './template.js'
 
 /**
@@ -66,9 +67,11 @@ class CalendarDoor extends HTMLElement {
     super()
     this.attachShadow({ mode: 'open' })
     this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.$doorBackdrop = this.shadowRoot.querySelector('[part="door-backdrop"]')
     this.$doorFrame = this.shadowRoot.querySelector('#door-frame')
     this.$doorLabel = this.shadowRoot.querySelector('#label-text')
     this.$doorContent = this.shadowRoot.querySelector('#door-content')
+    console.log(this.$doorBackdrop)
   }
 
   connectedCallback () {
@@ -120,10 +123,11 @@ class CalendarDoor extends HTMLElement {
     this.$doorFrame.classList.add('open')
     this.removeAttribute('data-door')
     this.dataset.content = ''
+    this.preloadContent()
   }
 
   preloadContent () {
-    // console.log(`[CalendarDoor] Preloading content for door ${this.id}`)
+    assetLoader.preloadImage(`images/${this.packageConfig.filename}`)
   }
 
   displayContent () {

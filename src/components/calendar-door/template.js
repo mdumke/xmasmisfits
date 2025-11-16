@@ -6,6 +6,10 @@ template.innerHTML = `
   <style>${css}</style>
 
   <main>
+    <div part="door-backdrop" class="door-backdrop">
+      <loading-spinner></loading-spinner>
+    </div>
+
     <div id="door-content" class="door-content" part="door-content"></div>
 
     <div id="door-frame" class="door-frame">

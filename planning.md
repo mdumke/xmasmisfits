@@ -7,9 +7,12 @@
 - [x] create title state
 - [x] open multiple doors
 - [ ] implement content loading strategy
+- [ ] snow animations
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed
+- [ ] support yt videos
 - [ ] restrict door access
+- [ ] HTTP 2
 - [ ] play media items
 - [ ] door creaks as it moves over
 - [ ] loudness / speaker test
@@ -26,6 +29,8 @@
 - [x] remove active flag after usage
 - [x] allow progress bar an initial transition
 - [ ] fix flickering before calendar rendering
+- [ ] provide fallback if thumnails not loaded
+- [ ] red background when image is smaller than screen
 
 ## assets
 
@@ -37,7 +42,7 @@
 
 - images:
     - calendar image
-    - doors
+    - [doors]
     - title graphics
     - favicon
     - page background (?)
@@ -56,4 +61,5 @@
 
 - [x] One canonical-size image, pixel-perfect interactions, no retina support
 - [x] Once a door is open, it stays open
+- [x] All items will be videos, streamed via youtube
 - [ ] does a speaker test make sense?
