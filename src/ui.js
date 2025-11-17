@@ -6,11 +6,11 @@ class UI {
     this.$app = this.selectElement('#app')
   }
 
-  renderTemplate (selector) {
-    const template = this.selectElement(selector)
-    const clone = template.content.cloneNode(true)
-    this.$app.innerHTML = ''
-    this.$app.appendChild(clone)
+  revealCalendar () {
+    const $screen = this.selectElement('#title-screen')
+    $screen.classList.add('move-up')
+    // make sure the timing matches the CSS's move-up transition
+    setTimeout(() => $screen.remove(), 3000)
   }
 
   renderCalendarAssets () {
@@ -40,6 +40,14 @@ class UI {
   updateProgressBar ($bar, progress, minValue = 2) {
     // showing at least minValue indicates activity
     $bar.setAttribute('value', Math.max(progress, minValue))
+  }
+
+  configurePackages () {
+    assetLoader.assetMapping.doors.forEach(door => {
+      const $door = ui.selectElement(`#${door.id}`)
+      const pkg = assetLoader.assetMapping.packages[door.packageId]
+      $door.packageConfig = pkg
+    })
   }
 
   selectElement (selector) {

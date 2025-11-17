@@ -19,9 +19,9 @@ export class CalendarContext {
   }
 
   render () {
-    ui.renderTemplate('#calendar-screen')
     ui.renderCalendarAssets()
     ui.selectElement('#pan-container').scrollToCenter()
+    ui.revealCalendar()
   }
 
   onCalendarClick = event => {
@@ -42,16 +42,8 @@ export class CalendarContext {
 
   handlePackages () {
     assetLoader.packageThumbnailsReady
-      ? this.configurePackages()
+      ? ui.configurePackages()
       : assetLoader.registerProgressCallback(this.key, this.onLoadingProgress)
-  }
-
-  configurePackages () {
-    assetLoader.assetMapping.doors.forEach(door => {
-      const $door = ui.selectElement(`#${door.id}`)
-      const pkg = assetLoader.assetMapping.packages[door.packageId]
-      $door.packageConfig = pkg
-    })
   }
 
   onLoadingProgress = (stage, _, done) => {
@@ -59,6 +51,6 @@ export class CalendarContext {
     if (!done) return
 
     assetLoader.unregisterProgressCallback(this.key)
-    this.configurePackages()
+    ui.configurePackages()
   }
 }

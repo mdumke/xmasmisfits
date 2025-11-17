@@ -11,12 +11,15 @@ export class TitleContext {
   $progressBar = null
 
   enter () {
-    ui.renderTemplate('#title-screen')
     this.$startBtn = ui.selectElement('#start-button')
     this.$progressBar = ui.selectElement('#progress-bar')
-    this.$startBtn.addEventListener('click', this.onStartClick)
     assetLoader.registerProgressCallback(this.key, this.onLoadingProgress)
     assetLoader.run()
+    this.registerListeners()
+  }
+
+  exit () {
+    this.removeListeners()
   }
 
   onLoadingProgress = (stage, progress, done) => {
@@ -29,12 +32,9 @@ export class TitleContext {
     if (!done) return
 
     assetLoader.unregisterProgressCallback(this.key)
+
     // Small delay to let users see 100% completion
     setTimeout(this.goToCalendar, 1200)
-  }
-
-  exit () {
-    this.$startBtn.removeEventListener('click', this.onStartClick)
   }
 
   onStartClick = () => {
@@ -49,14 +49,22 @@ export class TitleContext {
     this.autoSwitch = true
 
     // give the bar a chance to render with width 0 first to enable transition
-    setTimeout(this.updateProgressBar.bind(this), 0)
+    setTimeout(this.updateProgressBar, 0)
   }
 
   goToCalendar = () => {
     contextManager.change(new CalendarContext())
   }
 
-  updateProgressBar () {
+  updateProgressBar = () => {
     ui.updateProgressBar(this.$progressBar, this.loadingProgress)
+  }
+
+  registerListeners () {
+    this.$startBtn.addEventListener('click', this.onStartClick)
+  }
+
+  removeListeners () {
+    this.$startBtn.removeEventListener('click', this.onStartClick)
   }
 }

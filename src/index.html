@@ -9,24 +9,24 @@
 </head>
 
 <body>
-  <div id="app" class="app"></div>
+  <div id="app" class="app">
+    <div class="screen-wrapper">
 
-  <template id="title-screen">
-    <div class="screen title-screen">
-      <h1>Advent 2025</h1>
-      <button id="start-button" class="start-button">Start</button>
-      <progress-bar id="progress-bar" class="progress-bar hide"></progress-bar>
-    </div>
-  </template>
+      <div id="title-screen" class="screen title-screen">
+        <h1>Advent 2025</h1>
+        <button id="start-button" class="start-button">Start</button>
+        <progress-bar id="progress-bar" class="progress-bar hide"></progress-bar>
+      </div>
 
-  <template id="calendar-screen">
-    <div class="screen">
-      <media-player id="media-player"></media-player>
-      <pan-container id="pan-container" class="pan-container">
-        <div id="calendar" class="calendar"></div>
-      </pan-container>
+      <div class="screen calendar-screen">
+        <media-player id="media-player"></media-player>
+        <pan-container id="pan-container" class="pan-container">
+          <div id="calendar" class="calendar"></div>
+        </pan-container>
+      </div>
+
     </div>
-  </template>
+  </div>
 
   <script type="module" src="main.js"></script>
 </body>

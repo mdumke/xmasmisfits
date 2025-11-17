@@ -8,10 +8,13 @@
 - [x] open multiple doors
 - [x] support yt videos
 - [x] play-btn on the door content
-- [ ] implement content loading strategy
-- [ ] build the background completely before lifting
+- [x] implement content loading strategy
+- [x] build the background completely before lifting
+- [ ] put placeholder image in media player (w/shadow)
 - [ ] remember which doors are open
 - [ ] snow animations
+- [ ] move css for title state into html
+- [ ] curtain-like border for title-screen
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed
 - [ ] restrict door access
@@ -30,8 +33,11 @@
 - [x] remove active flag after usage
 - [x] allow progress bar an initial transition
 - [x] provide fallback if thumnails not yet loaded
-- [ ] fix flickering before calendar rendering
-- [ ] red background when image is smaller than screen
+- [x] fix flickering before calendar rendering
+
+## refactorings
+
+- [ ] intersect click events at the door, not calendar level
 
 ## assets
 
@@ -63,4 +69,5 @@
 - [x] One canonical-size image, pixel-perfect interactions, no retina support
 - [x] Once a door is open, it stays open
 - [x] All items will be videos, streamed via youtube
+- [x] Weirdly long screens see the calandar image at the top, not centered
 - [ ] does a speaker test make sense?
