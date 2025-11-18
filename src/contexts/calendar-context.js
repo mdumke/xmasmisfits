@@ -27,7 +27,7 @@ export class CalendarContext {
   onCalendarClick = event => {
     const $door = event.target.closest('[data-door]')
     if ($door) {
-      return $door.setAttribute('open', 'true')
+      return $door.openIfAllowed()
     }
 
     const $content = event.target.closest('[data-content]')

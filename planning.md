@@ -10,6 +10,7 @@
 - [x] play-btn on the door content
 - [x] implement content loading strategy
 - [x] build the background completely before lifting
+- [x] restrict door access
 - [ ] put placeholder image in media player (w/shadow)
 - [ ] remember which doors are open
 - [ ] snow animations
@@ -18,7 +19,6 @@
 - [ ] curtain-like border for title-screen
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed
-- [ ] restrict door access
 - [ ] HTTP 2
 - [ ] door creaks as it moves over
 - [ ] loudness / speaker test
@@ -28,6 +28,11 @@
 - [ ] js-disabled message
 - [ ] audio: loudness adjustments
 - [ ] optimize media for download
+
+## production
+
+- [ ] get a domain
+- [ ] disable opening doors in november
 
 ## bugs
 

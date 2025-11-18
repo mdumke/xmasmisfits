@@ -5,6 +5,7 @@
  */
 
 import { template } from './template.js'
+import { allowOpen } from '../../utils.js'
 
 /**
  * @element calendar-door
@@ -13,7 +14,6 @@ import { template } from './template.js'
  * @fires show-player - Fired when the door content is clicked to display the player.
  * The event detail contains an object: { src: string } with the content source URL.
  *
- * @attr {string} open - When present, triggers the door opening animation.
  * @part label-container - The container element for the door label.
  * @part door-content - The content area revealed when the door is opened.
  */
@@ -30,7 +30,7 @@ class CalendarDoor extends HTMLElement {
    * }
    */
   static get observedAttributes () {
-    return ['open', 'preload']
+    return ['preload']
   }
 
   set config (obj) {
@@ -108,11 +108,14 @@ class CalendarDoor extends HTMLElement {
     this.$doorContent.querySelector('#play-icon').classList.remove('hide')
   }
 
-  openDoor () {
+  openIfAllowed () {
+    if (!allowOpen(this.config.label)) return false
+
     const doorFrameWidth = this.$doorFrame.offsetWidth
     this.$doorFrame.style.transform = `translateX(-${doorFrameWidth - 2}px)`
     this.$doorFrame.classList.add('open')
     this.removeAttribute('data-door')
+    this.setAttribute('open', 'true')
     this.dataset.content = ''
   }
 
