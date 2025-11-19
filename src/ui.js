@@ -16,21 +16,29 @@ class UI {
 
   async renderCalendarAssets () {
     const assets = assetLoader.assetMapping
+    const $snow = this.selectElement('#snow-overlay')
     const $calendar = ui.selectElement('#calendar')
-    await this.renderBackground($calendar, assets)
+    await this.renderBackground($snow, $calendar, assets)
     this.renderDoors($calendar, assets)
   }
 
-  async renderBackground ($calendar, { background }) {
+  async renderBackground ($snow, $calendar, { background }) {
     // ensure the image is loaded before applying to avoid flicker
     await assetLoader.refreshImage(background.filename)
+    $snow.setAttribute('width', background.width)
+    $snow.setAttribute('height', background.height)
     $calendar.style.backgroundImage = `url('images/${background.filename}')`
     $calendar.style.width = `${background.width}px`
     $calendar.style.height = `${background.height}px`
   }
 
+  startSnow () {
+    const $snow = this.selectElement('#snow-overlay')
+    $snow.startSnow(200)
+  }
+
   renderDoors ($calendar, { doors }) {
-    $calendar.innerHTML = ''
+    // $calendar.innerHTML = ''
     doors.forEach(door => $calendar.appendChild(this.buildDoorElement(door)))
   }
 

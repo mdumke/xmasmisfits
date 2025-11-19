@@ -14,11 +14,12 @@
 - [x] content image passepartout
 - [x] remember which doors are open
 - [x] blur out edges of calendar to white
+- [x] snow animations
 - [ ] start versioning releases
-- [ ] snow animations
 - [ ] fade title screen to black before opening
 - [ ] put placeholder image in media player (w/shadow)
 - [ ] door creaks as it moves over
+- [ ] add navigation indicators to pan container
 - [ ] play pan-scrub sounds
 - [ ] settings section with storage reset and sounds on/off
 - [ ] allow closing doors

@@ -4,6 +4,7 @@ import './components/progress-bar/progress-bar.js'
 import './components/media-player/media-player.js'
 import './components/loading-spinner/loading-spinner.js'
 import './components/blur-overlay/blur-overlay.js'
+import './components/snow-overlay/snow-overlay.js'
 
 import { contextManager } from './contexts/context-manager.js'
 import { TitleContext } from './contexts/title-context.js'

@@ -25,6 +25,7 @@ export class CalendarContext {
     await ui.renderCalendarAssets()
     ui.reopenDoors(this.openedDoors)
     ui.selectElement('#pan-container').scrollToCenter()
+    ui.startSnow()
     ui.revealCalendar()
   }
 
