@@ -1,0 +1,28 @@
+:host {
+  --width: 10px;
+  --edge-opacity: 1;
+
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, var(--edge-opacity)),
+      rgba(255, 255, 255, 0) var(--width),
+      rgba(255, 255, 255, 0) calc(100% - var(--width)),
+      rgba(255, 255, 255, var(--edge-opacity))
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, var(--edge-opacity)),
+      rgba(255, 255, 255, 0) var(--width),
+      rgba(255, 255, 255, 0) calc(100% - var(--width)),
+      rgba(255, 255, 255, var(--edge-opacity))
+    );
+  background-blend-mode: lighten;
+}

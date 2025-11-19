@@ -13,17 +13,20 @@
 - [x] restrict door access
 - [x] content image passepartout
 - [x] remember which doors are open
-- [ ] allow closing doors
-- [ ] put placeholder image in media player (w/shadow)
+- [x] blur out edges of calendar to white
+- [ ] start versioning releases
 - [ ] snow animations
-- [ ] blur out edges of calendar to white
+- [ ] fade title screen to black before opening
+- [ ] put placeholder image in media player (w/shadow)
+- [ ] door creaks as it moves over
+- [ ] play pan-scrub sounds
 - [ ] settings section with storage reset and sounds on/off
+- [ ] allow closing doors
 - [ ] move css for title state into html
 - [ ] curtain-like border for title-screen
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed
 - [ ] HTTP 2
-- [ ] door creaks as it moves over
 - [ ] loudness / speaker test
 - [ ] strategy for contact / copyright / cookies
 - [ ] error handling

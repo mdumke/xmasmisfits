@@ -31,12 +31,12 @@ html {
   overflow: hidden;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .screen-wrapper {
     height: calc(1 * 600px);
     width: calc(1 * 1024px);
   }
-}
+} */
 
 .screen {
   position: absolute;
@@ -107,4 +107,9 @@ html {
 
 .calendar {
   position: relative;
+}
+
+blur-overlay {
+  --width: 50px;
+  --edge-opacity: 0.9;
 }
