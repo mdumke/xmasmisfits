@@ -49,6 +49,7 @@ class PanContainer extends HTMLElement {
     this.$container.addEventListener('pointerdown', this.startPan)
     this.$container.addEventListener('pointerleave', this.stopPan)
     this.$container.addEventListener('pointerup', this.stopPan)
+    this.$container.addEventListener('pointercancel', this.stopPan)
     this.$container.addEventListener('pointermove', this.updatePan)
   }
 
@@ -56,6 +57,7 @@ class PanContainer extends HTMLElement {
     this.$container.removeEventListener('pointerdown', this.startPan)
     this.$container.removeEventListener('pointerleave', this.stopPan)
     this.$container.removeEventListener('pointerup', this.stopPan)
+    this.$container.removeEventListener('pointercancel', this.stopPan)
     this.$container.removeEventListener('pointermove', this.updatePan)
   }
 

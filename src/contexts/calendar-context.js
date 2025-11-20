@@ -28,7 +28,6 @@ export class CalendarContext {
     ui.selectElement('#pan-container').scrollToCenter()
     ui.startSnow()
     await audioPlayer.unlock()
-    audioPlayer.play('scrub')
     ui.revealCalendar()
   }
 

@@ -8,10 +8,10 @@ class UI {
 
   revealCalendar () {
     const $screen = this.selectElement('#title-screen')
-    //$screen.remove()
-    $screen.classList.add('move-up')
-    // make sure the timing matches the CSS's move-up transition
-    setTimeout(() => $screen.remove(), 3000)
+    $screen.remove()
+    // $screen.classList.add('move-up')
+    // // make sure the timing matches the CSS's move-up transition
+    // setTimeout(() => $screen.remove(), 3000)
   }
 
   async renderCalendarAssets () {
@@ -48,14 +48,6 @@ class UI {
       $door.openIfAllowed()
     })
   }
-
-  // testAudio () {
-  //   const audioCtx = new (window.AudioContext || window.webkitAudioContext)()
-  //   const audio = new Audio('audio/srub.mp3')
-  //   const track = audioCtx.createMediaElementSource(audio)
-  //   track.connect(audioCtx.destination)
-  //   audio.play()
-  // }
 
   buildDoorElement (door) {
     const $door = document.createElement('calendar-door')

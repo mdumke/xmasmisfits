@@ -73,8 +73,8 @@ class AssetLoader {
     })
 
     await Promise.all(
-      audioFiles.map(async ({ name, filename }) => {
-        await audioPlayer.load(name, `audio/${filename}`)
+      audioFiles.map(async ({ name, filename, volume }) => {
+        await audioPlayer.load(name, `audio/${filename}`, { volume })
         count++
         this.onProgress(count, total)
       })

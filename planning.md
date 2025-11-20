@@ -15,13 +15,12 @@
 - [x] remember which doors are open
 - [x] blur out edges of calendar to white
 - [x] snow animations
+- [x] play door sounds
 - [ ] start versioning releases
-- [ ] play pan-scrub sounds
 - [ ] is there a way to reduce yt ads?
 - [ ] add ambient soundscape
 - [ ] fade title screen to black before opening
 - [ ] put placeholder image in media player (w/shadow)
-- [ ] door creaks as it moves over
 - [ ] add navigation indicators to pan container
 - [ ] settings section with storage reset and sounds on/off
 - [ ] allow closing doors

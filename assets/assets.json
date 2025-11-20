@@ -1,8 +1,9 @@
 {
   "audio": [
     {
-      "name": "scrub",
-      "filename": "scrub.mp3"
+      "name": "door",
+      "filename": "door.mp3",
+      "volume": 0.3
     }
   ],
   "background": {
