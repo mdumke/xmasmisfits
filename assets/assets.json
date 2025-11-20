@@ -4,6 +4,11 @@
       "name": "door",
       "filename": "door.mp3",
       "volume": 0.1
+    },
+    {
+      "name": "wind",
+      "filename": "wind-fade.mp3",
+      "volume": 0.4
     }
   ],
   "background": {

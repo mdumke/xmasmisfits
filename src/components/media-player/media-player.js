@@ -51,6 +51,13 @@ class MediaPlayer extends HTMLElement {
 
     this.classList.add('hide')
     this.$overlay.innerHTML = ''
+
+    this.dispatchEvent(
+      new CustomEvent('player-closed', {
+        bubbles: true,
+        composed: true
+      })
+    )
   }
 }
 

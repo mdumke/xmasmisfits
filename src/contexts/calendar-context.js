@@ -11,10 +11,11 @@ export class CalendarContext {
   async enter () {
     this.openedDoors = loadOpenedDoors()
     await this.render()
+    this.player = ui.selectElement('#media-player')
     this.$calendar = ui.selectElement('#calendar')
     this.$calendar.addEventListener('click', this.onCalendarClick)
-    this.$calendar.addEventListener('show-player', this.onShowPlayer)
-    this.player = ui.selectElement('#media-player')
+    document.addEventListener('show-player', this.onShowPlayer)
+    document.addEventListener('player-closed', this.onPlayerClosed)
     this.handlePackages()
   }
 
@@ -28,6 +29,7 @@ export class CalendarContext {
     ui.selectElement('#pan-container').scrollToCenter()
     ui.startSnow(300)
     await audioPlayer.unlock()
+    ui.playAmbience()
     ui.revealCalendar()
   }
 
@@ -50,7 +52,12 @@ export class CalendarContext {
   }
 
   onShowPlayer = event => {
+    audioPlayer.stop('wind')
     this.player.displayImage(event)
+  }
+
+  onPlayerClosed = () => {
+    ui.playAmbience()
   }
 
   handlePackages () {

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Added
 
+- play wind ambience sound
 - play door sound
 - snow overlay
 - edge-blur overlay

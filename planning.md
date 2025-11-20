@@ -16,10 +16,11 @@
 - [x] blur out edges of calendar to white
 - [x] snow animations
 - [x] play door sounds
-- [ ] play wind background sound
+- [x] play wind background sound
+- [ ] fade title screen to black before opening
+- [ ] add sound-toggle in the calendar corner
 - [ ] start versioning releases
 - [ ] is there a way to reduce yt ads?
-- [ ] fade title screen to black before opening
 - [ ] put placeholder image in media player (w/shadow)
 - [ ] add navigation indicators to pan container
 - [ ] add full ambient soundscape

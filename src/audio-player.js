@@ -1,34 +1,43 @@
 class AudioPlayer {
   constructor () {
     this.audioCtx = null
+    this.masterGain = null
     this.buffers = {}
     this.activeSources = {}
   }
 
-  play (name, { volume = 1.0 } = {}) {
+  play (name, { volume = 1.0, loop = false } = {}) {
     if (!this.audioCtx) {
       return console.warn(`[AudioPlayer] audio context is locked`)
     }
 
-    const buffer = this.buffers[name]
-    if (!buffer) {
-      return console.warn(`[AudioPlayer] buffer "${name}" not found`)
-    }
-
     const source = this.audioCtx.createBufferSource()
-    source.buffer = buffer
+    source.buffer = this.buffers[name]
+    source.loop = loop
 
     const gain = this.audioCtx.createGain()
     gain.gain.value = Math.max(0, volume)
+
     source.connect(gain)
-    gain.connect(this.audioCtx.destination)
+    gain.connect(this.masterGain)
 
     source.start(0)
 
-    this.activeSources[name] = source
+    this.activeSources[name] = { source, gain }
     source.onended = () => {
       delete this.activeSources[name]
     }
+  }
+
+  stop (name) {
+    if (!this.audioCtx) {
+      return console.warn(`[AudioPlayer] audio context is locked`)
+    }
+
+    const entry = this.activeSources[name]
+    if (!entry) return
+
+    entry.source.stop()
   }
 
   // Loads audio files and converts them to AudioBuffers.
@@ -43,6 +52,9 @@ class AudioPlayer {
     if (this.audioCtx) return
 
     this.audioCtx = new AudioContext()
+    this.masterGain = this.audioCtx.createGain()
+    this.masterGain.gain.value = 1.0
+    this.masterGain.connect(this.audioCtx.destination)
     await this.audioCtx.resume()
     await this.decodeBuffers()
     this.locked = false
@@ -54,7 +66,7 @@ class AudioPlayer {
       return
     }
 
-    if (!this.audioCtx.state === 'running') {
+    if (this.audioCtx.state !== 'running') {
       console.warn('[AudioPlayer] cannot decode: audio context is not running')
       return
     }

@@ -56,10 +56,15 @@ class UI {
     return $door
   }
 
-  playSound (name) {
+  playSound (name, { loop = false } = {}) {
     audioPlayer.play(name, {
-      volume: assetLoader.audioInfo[name]?.volume || 1.0
+      volume: assetLoader.audioInfo[name]?.volume || 1.0,
+      loop
     })
+  }
+
+  playAmbience () {
+    this.playSound('wind', { loop: true })
   }
 
   updateProgressBar ($bar, progress, minValue = 2) {
