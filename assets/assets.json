@@ -23,7 +23,9 @@
   },
   "ui": [
     "ui/volume.svg",
-    "ui/volume-slash.svg"
+    "ui/volume-slash.svg",
+    "ui/minimize.svg",
+    "ui/maximize.svg"
   ],
   "doors": [
     {

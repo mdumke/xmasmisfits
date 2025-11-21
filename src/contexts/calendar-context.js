@@ -18,8 +18,11 @@ export class CalendarContext {
     document.addEventListener('player-closed', this.onPlayerClosed)
     document.addEventListener('audio-mute', this.onAudioMute)
     document.addEventListener('audio-unmute', this.onAudioUnmute)
+    document.addEventListener('enter-fullscreen', this.onEnterFullscreen)
+    document.addEventListener('exit-fullscreen', this.onExitFullscreen)
     document.addEventListener('visibilitychange', this.onVisibilityChange)
     this.handlePackages()
+    ui.revealCalendar()
   }
 
   exit () {
@@ -33,7 +36,6 @@ export class CalendarContext {
     ui.startSnow(300)
     await audioPlayer.unlock()
     ui.playAmbience()
-    await ui.revealCalendar()
   }
 
   onCalendarClick = event => {
@@ -72,6 +74,14 @@ export class CalendarContext {
   onAudioUnmute = () => {
     ui.playSound('click')
     audioPlayer.resume()
+  }
+
+  onEnterFullscreen = () => {
+    ui.enterFullscreen()
+  }
+
+  onExitFullscreen = () => {
+    ui.exitFullscreen()
   }
 
   onVisibilityChange = () => {

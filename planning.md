@@ -18,16 +18,19 @@
 - [x] play door sounds
 - [x] play wind background sound
 - [x] reveal calendar via slide
-- [ ] add sound-toggle in the calendar corner
-- [ ] start versioning releases
+- [x] add sound-toggle in the calendar corner
+- [x] start versioning releases
+- [x] toggle full-screen view
 - [ ] is there a way to reduce yt ads?
+- [ ] remember last scroll position
+- [ ] find more appropriate font
 - [ ] put placeholder image in media player (w/shadow)
+- [ ] fade master gain on cancel
 - [ ] add navigation indicators to pan container
 - [ ] add full ambient soundscape
 - [ ] settings section with storage reset and sounds on/off
 - [ ] allow closing doors
 - [ ] move css for title state into html
-- [ ] curtain-like border for title-screen
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed
 - [ ] HTTP 2
@@ -38,6 +41,10 @@
 - [ ] js-disabled message
 - [ ] audio: loudness adjustments
 - [ ] optimize media for download
+- [ ] hide snowflakes behind clouds layer
+- [ ] glow behind active unopened doors
+- [ ] feedback when trying to open future doors
+- [ ] ensure timezone / day switch works
 
 ## production
 
@@ -51,10 +58,13 @@
 - [x] provide fallback if thumnails not yet loaded
 - [x] fix flickering before calendar rendering
 - [x] reveal calendar without flickering even on re-focussing tab
+- [x] show content thumbnails while curtain is lifting
+- [ ] don't play obsolete sound effects after audio resume
 
 ## refactorings
 
 - [ ] use calendar class to keep track of doors
+- [ ] move css button:active styling into the toggles
 
 ## assets
 

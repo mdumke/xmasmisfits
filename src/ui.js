@@ -87,6 +87,16 @@ class UI {
     })
   }
 
+  enterFullscreen () {
+    if (document.fullscreenElement) return
+    this.$app.requestFullscreen()
+  }
+
+  exitFullscreen () {
+    if (!document.fullscreenElement) return
+    document.exitFullscreen()
+  }
+
   selectElement (selector) {
     const $el = document.querySelector(selector)
     if (!$el) {
