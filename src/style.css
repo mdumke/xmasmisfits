@@ -115,3 +115,8 @@ blur-overlay {
   --width: 30px;
   --edge-opacity: 0.9;
 }
+
+audio-toggle:active {
+  transform: scale(0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}

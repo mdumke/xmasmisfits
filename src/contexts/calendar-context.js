@@ -16,6 +16,8 @@ export class CalendarContext {
     this.$calendar.addEventListener('click', this.onCalendarClick)
     document.addEventListener('show-player', this.onShowPlayer)
     document.addEventListener('player-closed', this.onPlayerClosed)
+    document.addEventListener('audio-mute', this.onAudioMute)
+    document.addEventListener('audio-unmute', this.onAudioUnmute)
     this.handlePackages()
   }
 
@@ -58,6 +60,17 @@ export class CalendarContext {
 
   onPlayerClosed = () => {
     ui.playAmbience()
+  }
+
+  onAudioMute = async () => {
+    ui.playSound('click').then(() => {
+      audioPlayer.pause()
+    })
+  }
+
+  onAudioUnmute = () => {
+    ui.playSound('click')
+    audioPlayer.resume()
   }
 
   handlePackages () {

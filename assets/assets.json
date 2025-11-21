@@ -8,7 +8,12 @@
     {
       "name": "wind",
       "filename": "wind-fade.mp3",
-      "volume": 0.4
+      "volume": 0.3
+    },
+    {
+      "name": "click",
+      "filename": "option-select.mp3",
+      "volume": 0.1
     }
   ],
   "background": {
@@ -16,6 +21,10 @@
     "width": 3200,
     "height": 1800
   },
+  "ui": [
+    "ui/volume.svg",
+    "ui/volume-slash.svg"
+  ],
   "doors": [
     {
       "id": "door-01",

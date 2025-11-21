@@ -10,6 +10,8 @@ class UI {
   async revealCalendar () {
     return new Promise(resolve => {
       const $screen = this.selectElement('#title-screen')
+      // $screen.remove()
+      // resolve()
 
       // make sure the timing matches the CSS's move-up transition
       $screen.classList.add('move-up')
@@ -61,8 +63,8 @@ class UI {
     return $door
   }
 
-  playSound (name, { loop = false } = {}) {
-    audioPlayer.play(name, {
+  async playSound (name, { loop = false } = {}) {
+    await audioPlayer.play(name, {
       volume: assetLoader.audioInfo[name]?.volume || 1.0,
       loop
     })

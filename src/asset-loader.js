@@ -60,7 +60,8 @@ class AssetLoader {
 
     const imageFilenames = [
       this._assetMapping.background.filename,
-      ...this._assetMapping.doors.map(door => door.filename)
+      ...this._assetMapping.doors.map(door => door.filename),
+      ...this._assetMapping.ui
     ]
 
     const audioFiles = this._assetMapping.audio

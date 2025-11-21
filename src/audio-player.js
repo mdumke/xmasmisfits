@@ -6,27 +6,30 @@ class AudioPlayer {
     this.activeSources = {}
   }
 
-  play (name, { volume = 1.0, loop = false } = {}) {
+  async play (name, { volume = 1.0, loop = false } = {}) {
     if (!this.audioCtx) {
       return console.warn(`[AudioPlayer] audio context is locked`)
     }
 
-    const source = this.audioCtx.createBufferSource()
-    source.buffer = this.buffers[name]
-    source.loop = loop
+    return new Promise(resolve => {
+      const source = this.audioCtx.createBufferSource()
+      source.buffer = this.buffers[name]
+      source.loop = loop
 
-    const gain = this.audioCtx.createGain()
-    gain.gain.value = Math.max(0, volume)
+      const gain = this.audioCtx.createGain()
+      gain.gain.value = Math.max(0, volume)
 
-    source.connect(gain)
-    gain.connect(this.masterGain)
+      source.connect(gain)
+      gain.connect(this.masterGain)
 
-    source.start(0)
+      source.start(0)
 
-    this.activeSources[name] = { source, gain }
-    source.onended = () => {
-      delete this.activeSources[name]
-    }
+      this.activeSources[name] = { source, gain }
+      source.onended = () => {
+        delete this.activeSources[name]
+        resolve()
+      }
+    })
   }
 
   stop (name) {
@@ -58,6 +61,26 @@ class AudioPlayer {
     await this.audioCtx.resume()
     await this.decodeBuffers()
     this.locked = false
+  }
+
+  async pause () {
+    if (!this.audioCtx)
+      return console.warn('[AudioPlayer] cannot pause: audio context is locked')
+    if (this.audioCtx.state === 'suspended') return
+    await this.audioCtx.suspend()
+  }
+
+  async resume () {
+    if (!this.audioCtx)
+      return console.warn(
+        '[AudioPlayer] cannot resume: audio context is locked'
+      )
+    if (this.audioCtx.state === 'running') return
+    await this.audioCtx.resume()
+  }
+
+  get isPaused () {
+    return this.audioCtx ? this.audioCtx.state === 'suspended' : true
   }
 
   async decodeBuffers () {
