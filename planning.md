@@ -21,14 +21,15 @@
 - [x] add sound-toggle in the calendar corner
 - [x] start versioning releases
 - [x] toggle full-screen view
-- [ ] support animations
+- [x] support animations
 - [ ] is there a way to reduce yt ads?
 - [ ] remember last scroll position
-- [ ] find more appropriate font
+- [ ] find a more appropriate font
 - [ ] put placeholder image in media player (w/shadow)
 - [ ] fade master gain on cancel
 - [ ] add navigation indicators to pan container
 - [ ] add full ambient soundscape
+- [ ] build a title page
 - [ ] settings section with storage reset and sounds on/off
 - [ ] move css for title state into html
 - [ ] load different images depending on resolution
