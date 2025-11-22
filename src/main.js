@@ -7,6 +7,7 @@ import './components/blur-overlay/blur-overlay.js'
 import './components/snow-overlay/snow-overlay.js'
 import './components/audio-toggle/audio-toggle.js'
 import './components/fullscreen-toggle/fullscreen-toggle.js'
+import './components/animation-sequence/animation-sequence.js'
 
 import { contextManager } from './contexts/context-manager.js'
 import { TitleContext } from './contexts/title-context.js'

@@ -61,7 +61,8 @@ class AssetLoader {
     const imageFilenames = [
       this._assetMapping.background.filename,
       ...this._assetMapping.doors.map(door => door.filename),
-      ...this._assetMapping.ui
+      ...this._assetMapping.ui,
+      ...this._assetMapping.animations.flatMap(({ filenames }) => filenames)
     ]
 
     const audioFiles = this._assetMapping.audio
@@ -90,6 +91,14 @@ class AssetLoader {
     this.progressCallbacks.forEach(({ cb }) =>
       cb(this.loadingStage, progress, progress === 100)
     )
+  }
+
+  getImage (filename) {
+    const img = this.cachedImages[filename]
+    if (!img) {
+      throw new Error(`[AssetLoader] image not cached: ${filename}`)
+    }
+    return img
   }
 
   async preloadPackageThumbnails () {

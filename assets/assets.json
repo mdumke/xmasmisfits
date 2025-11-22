@@ -1,4 +1,54 @@
 {
+  "animations": [
+    {
+      "filenames": [
+        "animations/cat-01-a.png",
+        "animations/cat-01-b.png"
+      ],
+      "position": {
+        "left": 800,
+        "top": 800
+      },
+      "size": {
+        "width": 530,
+        "height": 577
+      },
+      "sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "filenames": [
+        "animations/cat-01-a.png",
+        "animations/cat-01-b.png"
+      ],
+      "position": {
+        "left": 1400,
+        "top": 900
+      },
+      "size": {
+        "width": 330,
+        "height": 377
+      },
+      "sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
   "audio": [
     {
       "name": "door",

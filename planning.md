@@ -21,6 +21,7 @@
 - [x] add sound-toggle in the calendar corner
 - [x] start versioning releases
 - [x] toggle full-screen view
+- [ ] support animations
 - [ ] is there a way to reduce yt ads?
 - [ ] remember last scroll position
 - [ ] find more appropriate font
@@ -29,7 +30,6 @@
 - [ ] add navigation indicators to pan container
 - [ ] add full ambient soundscape
 - [ ] settings section with storage reset and sounds on/off
-- [ ] allow closing doors
 - [ ] move css for title state into html
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed

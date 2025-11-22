@@ -2,6 +2,7 @@ import { audioPlayer } from './audio-player.js'
 import { assetLoader } from './asset-loader.js'
 class UI {
   $app = null
+  $animations = []
 
   constructor () {
     this.$app = this.selectElement('#app')
@@ -28,6 +29,7 @@ class UI {
     const $calendar = ui.selectElement('#calendar')
     await this.renderBackground($snow, $calendar, assets)
     this.renderDoors($calendar, assets)
+    this.renderAnimations($calendar, assets)
   }
 
   async renderBackground ($snow, $calendar, { background }) {
@@ -48,6 +50,26 @@ class UI {
   renderDoors ($calendar, { doors }) {
     $calendar.innerHTML = ''
     doors.forEach(door => $calendar.appendChild(this.buildDoorElement(door)))
+  }
+
+  renderAnimations ($calendar, { animations }) {
+    animations.forEach(animation => {
+      const $animation = document.createElement('animation-sequence')
+      $animation.config = {
+        ...animation,
+        images: animation.filenames.map(filename =>
+          assetLoader.getImage(filename)
+        )
+      }
+      $calendar.appendChild($animation)
+      this.$animations.push($animation)
+    })
+  }
+
+  updateAnimations (frameIndex) {
+    this.$animations.forEach($animation => {
+      $animation.onTick(frameIndex)
+    })
   }
 
   reopenDoors (openedDoors = {}) {

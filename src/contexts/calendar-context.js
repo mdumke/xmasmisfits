@@ -1,6 +1,7 @@
 import { audioPlayer } from '../audio-player.js'
 import { assetLoader, STAGE_PACKAGE_THUMBNAILS } from '../asset-loader.js'
 import { loadOpenedDoors, saveOpenedDoors } from '../storage.js'
+import { timer } from '../timer.js'
 import { ui } from '../ui.js'
 
 export class CalendarContext {
@@ -21,7 +22,11 @@ export class CalendarContext {
     document.addEventListener('enter-fullscreen', this.onEnterFullscreen)
     document.addEventListener('exit-fullscreen', this.onExitFullscreen)
     document.addEventListener('visibilitychange', this.onVisibilityChange)
+    document.addEventListener('tick', this.onTick)
     this.handlePackages()
+
+    // TOOD: await package loading before starting animations !!!
+    this.startAnimations()
     ui.revealCalendar()
   }
 
@@ -92,6 +97,10 @@ export class CalendarContext {
     }
   }
 
+  onTick = e => {
+    ui.updateAnimations(e.detail.i)
+  }
+
   handlePackages () {
     assetLoader.packageThumbnailsReady
       ? ui.configurePackages()
@@ -104,5 +113,9 @@ export class CalendarContext {
 
     assetLoader.unregisterProgressCallback(this.key)
     ui.configurePackages()
+  }
+
+  startAnimations () {
+    timer.run()
   }
 }
