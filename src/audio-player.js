@@ -3,10 +3,29 @@ class AudioPlayer {
     this.audioCtx = null
     this.masterGain = null
     this.buffers = {}
-    this.activeSources = {}
+    this.activeSources = {
+      sounds: {},
+      tracks: {}
+    }
   }
 
-  async play (name, { volume = 1.0, loop = false } = {}) {
+  get isPaused () {
+    return this.audioCtx ? this.audioCtx.state === 'suspended' : true
+  }
+
+  async playSound (name, { volume } = {}) {
+    return this._play(name, 'sounds', { volume })
+  }
+
+  async playAmbienceTrack (name, { volume } = {}) {
+    return this._play(name, 'tracks', { volume, loop: true })
+  }
+
+  async stopAmbienceTrack (name) {
+    this._stop(name, 'tracks')
+  }
+
+  async _play (name, key, { volume = 1.0, loop = false } = {}) {
     if (!this.audioCtx) {
       return console.warn(`[AudioPlayer] audio context is locked`)
     }
@@ -24,20 +43,20 @@ class AudioPlayer {
 
       source.start(0)
 
-      this.activeSources[name] = { source, gain }
+      this.activeSources[key][name] = { source, gain }
       source.onended = () => {
-        delete this.activeSources[name]
+        delete this.activeSources[key][name]
         resolve()
       }
     })
   }
 
-  stop (name) {
+  _stop (name, key) {
     if (!this.audioCtx) {
-      return console.warn(`[AudioPlayer] audio context is locked`)
+      return console.warn(`[AudioPlayer] audio context locked`)
     }
 
-    const entry = this.activeSources[name]
+    const entry = this.activeSources[key][name]
     if (!entry) return
 
     entry.source.stop()
@@ -64,34 +83,39 @@ class AudioPlayer {
   }
 
   async pause () {
-    if (!this.audioCtx)
-      return console.warn('[AudioPlayer] cannot pause: audio context is locked')
+    if (!this.audioCtx) {
+      return console.warn('[AudioPlayer] cannot pause: audio context locked')
+    }
     if (this.audioCtx.state === 'suspended') return
     await this.audioCtx.suspend()
   }
 
   async resume () {
-    if (!this.audioCtx)
-      return console.warn(
-        '[AudioPlayer] cannot resume: audio context is locked'
-      )
+    if (!this.audioCtx) {
+      return console.warn('[AudioPlayer] cannot resume: audio context locked')
+    }
     if (this.audioCtx.state === 'running') return
+
+    // only resume ambience tracks; sound effects are one-shots
+    this.clearSources()
     await this.audioCtx.resume()
   }
 
-  get isPaused () {
-    return this.audioCtx ? this.audioCtx.state === 'suspended' : true
+  clearSources (key = 'sounds') {
+    Object.keys(this.activeSources[key]).forEach(name => {
+      this._stop(name, key)
+    })
   }
 
   async decodeBuffers () {
     if (!this.audioCtx) {
-      console.warn('[AudioPlayer] cannot decode: audio context is locked')
-      return
+      return console.warn('[AudioPlayer] cannot decode: audio context locked')
     }
 
     if (this.audioCtx.state !== 'running') {
-      console.warn('[AudioPlayer] cannot decode: audio context is not running')
-      return
+      return console.warn(
+        '[AudioPlayer] cannot decode: audio context not running'
+      )
     }
 
     await Promise.all(

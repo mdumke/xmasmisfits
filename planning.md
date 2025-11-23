@@ -1,5 +1,16 @@
 # Planning
 
+## discussion
+
+- [ ] yt adds
+- [ ] keep fullscreen button?
+- [ ] keep audio button?
+- [ ] title page
+  - adventkranz mit 4 kerzen?
+- [ ] animations concept
+- [ ] name / domain
+- [ ] sound effects and ambience recordings
+
 ## features
 
 - [x] pan image
@@ -22,9 +33,13 @@
 - [x] start versioning releases
 - [x] toggle full-screen view
 - [x] support animations
+- [ ] glow behind active unopened doors
+- [ ] feedback when trying to open future doors
 - [ ] is there a way to reduce yt ads?
 - [ ] remember last scroll position
+- [ ] loudness / speaker test
 - [ ] find a more appropriate font
+- [ ] js-disabled message
 - [ ] put placeholder image in media player (w/shadow)
 - [ ] fade master gain on cancel
 - [ ] add navigation indicators to pan container
@@ -35,17 +50,12 @@
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed
 - [ ] HTTP 2
-- [ ] loudness / speaker test
 - [ ] strategy for contact / copyright / cookies
 - [ ] error handling
 - [ ] create a PWA
-- [ ] js-disabled message
 - [ ] audio: loudness adjustments
 - [ ] optimize media for download
 - [ ] hide snowflakes behind clouds layer
-- [ ] glow behind active unopened doors
-- [ ] feedback when trying to open future doors
-- [ ] ensure timezone / day switch works
 
 ## production
 
@@ -60,7 +70,9 @@
 - [x] fix flickering before calendar rendering
 - [x] reveal calendar without flickering even on re-focussing tab
 - [x] show content thumbnails while curtain is lifting
-- [ ] don't play obsolete sound effects after audio resume
+- [x] don't play obsolete sound effects after audio resume
+- [ ] ensure timezone / day switch works
+- [ ] await package loading before starting animations
 
 ## refactorings
 
@@ -98,4 +110,5 @@
 - [x] Once a door is open, it stays open
 - [x] All items will be videos, streamed via youtube
 - [x] Weirdly long screens see the calandar image at the top, not centered
+- [x] No doors on top of animations
 - [ ] does a speaker test make sense?

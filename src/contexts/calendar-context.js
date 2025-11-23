@@ -65,7 +65,7 @@ export class CalendarContext {
   }
 
   onShowPlayer = event => {
-    audioPlayer.stop('wind')
+    ui.stopAmbience()
     this.player.displayImage(event)
   }
 

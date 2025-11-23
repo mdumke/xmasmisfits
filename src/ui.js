@@ -87,15 +87,20 @@ class UI {
     return $door
   }
 
-  async playSound (name, { loop = false } = {}) {
-    await audioPlayer.play(name, {
-      volume: assetLoader.audioInfo[name]?.volume || 1.0,
-      loop
+  async playSound (name) {
+    if (audioPlayer.isPaused) return
+
+    await audioPlayer.playSound(name, {
+      volume: assetLoader.audioInfo[name]?.volume || 1.0
     })
   }
 
   playAmbience () {
-    this.playSound('wind', { loop: true })
+    audioPlayer.playAmbienceTrack('wind')
+  }
+
+  stopAmbience () {
+    audioPlayer.stopAmbienceTrack('wind')
   }
 
   updateProgressBar ($bar, progress, minValue = 2) {
