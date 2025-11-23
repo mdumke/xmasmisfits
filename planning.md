@@ -1,16 +1,5 @@
 # Planning
 
-## discussion
-
-- [ ] yt adds
-- [ ] keep fullscreen button?
-- [ ] keep audio button?
-- [ ] title page
-  - adventkranz mit 4 kerzen?
-- [ ] animations concept
-- [ ] name / domain
-- [ ] sound effects and ambience recordings
-
 ## features
 
 - [x] pan image
@@ -33,12 +22,16 @@
 - [x] start versioning releases
 - [x] toggle full-screen view
 - [x] support animations
+- [x] remove title sliding
 - [ ] glow behind active unopened doors
+- [ ] use arrows for fullscreen icon
 - [ ] feedback when trying to open future doors
 - [ ] is there a way to reduce yt ads?
 - [ ] remember last scroll position
+- [ ] moving clouds
 - [ ] loudness / speaker test
 - [ ] find a more appropriate font
+- [ ] disable space-button panning
 - [ ] js-disabled message
 - [ ] put placeholder image in media player (w/shadow)
 - [ ] fade master gain on cancel
@@ -71,8 +64,8 @@
 - [x] reveal calendar without flickering even on re-focussing tab
 - [x] show content thumbnails while curtain is lifting
 - [x] don't play obsolete sound effects after audio resume
-- [ ] ensure timezone / day switch works
 - [ ] await package loading before starting animations
+- [ ] ensure timezone / day switch works
 
 ## refactorings
 
@@ -89,7 +82,7 @@
 
 - images:
     - calendar image
-    - [doors]
+    - door numbers
     - title graphics
     - favicon
     - page background (?)
@@ -112,3 +105,15 @@
 - [x] Weirdly long screens see the calandar image at the top, not centered
 - [x] No doors on top of animations
 - [ ] does a speaker test make sense?
+
+## discussion
+
+- [x] animations concept
+- [x] assets teilen -> email
+- [x] title page
+- [x] keep fullscreen button? yes
+- [x] keep audio button? yes
+- [ ] name / domain -> gerne, titel überlegen
+- [ ] yt adds -> recherchier nochmal
+- [ ] sound effects and ambience recordings
+- [ ] texte / rundschreiben

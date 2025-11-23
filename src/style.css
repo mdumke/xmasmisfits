@@ -31,13 +31,6 @@ html {
   overflow: hidden;
 }
 
-/* @media (min-width: 1024px) {
-  .screen-wrapper {
-    height: calc(1 * 600px);
-    width: calc(1 * 1024px);
-  }
-} */
-
 .screen {
   position: absolute;
   top: 0;
@@ -51,11 +44,6 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  &.move-up {
-    transform: translateY(-100%);
-    transition: transform 3s ease-out;
-  }
 }
 
 .title-screen {
