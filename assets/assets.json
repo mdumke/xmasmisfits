@@ -1,75 +1,8 @@
 {
-  "animations": [
-    {
-      "filenames": [
-        "animations/cat-01-a.png",
-        "animations/cat-01-b.png"
-      ],
-      "position": {
-        "left": 800,
-        "top": 800
-      },
-      "size": {
-        "width": 530,
-        "height": 577
-      },
-      "sequence": [
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    {
-      "filenames": [
-        "animations/cat-01-a.png",
-        "animations/cat-01-b.png"
-      ],
-      "position": {
-        "left": 1400,
-        "top": 900
-      },
-      "size": {
-        "width": 330,
-        "height": 377
-      },
-      "sequence": [
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  ],
-  "audio": [
-    {
-      "name": "door",
-      "filename": "door.mp3",
-      "volume": 0.1
-    },
-    {
-      "name": "wind",
-      "filename": "wind-fade.mp3",
-      "volume": 0.3
-    },
-    {
-      "name": "click",
-      "filename": "option-select.mp3",
-      "volume": 0.1
-    }
-  ],
   "background": {
-    "filename": "background-v02.webp",
-    "width": 3200,
-    "height": 1800
+    "filename": "background-v03.webp",
+    "width": 2560,
+    "height": 1440
   },
   "ui": [
     "ui/volume.svg",
@@ -134,5 +67,48 @@
       "thumbnail": "packages/moondog-120-158.webp",
       "src": "https://www.youtube-nocookie.com/embed/zdef5wZymnk?si=QE--7g9BRntQUP6d"
     }
-  }
+  },
+  "audio": [
+    {
+      "name": "door",
+      "filename": "door.mp3",
+      "volume": 0.1
+    },
+    {
+      "name": "wind",
+      "filename": "wind-fade.mp3",
+      "volume": 0.3
+    },
+    {
+      "name": "click",
+      "filename": "option-select.mp3",
+      "volume": 0.1
+    }
+  ],
+  "animations": [
+    {
+      "filenames": [
+        "animations/cat-01-a.png",
+        "animations/cat-01-b.png"
+      ],
+      "position": {
+        "left": 800,
+        "top": 800
+      },
+      "size": {
+        "width": 130,
+        "height": 177
+      },
+      "sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ]
 }
