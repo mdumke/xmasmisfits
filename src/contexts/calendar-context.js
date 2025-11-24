@@ -46,7 +46,9 @@ export class CalendarContext {
   }
 
   onDoorClick ($door) {
-    if (!$door.mayOpen()) return
+    if (!$door.mayOpen()) {
+      return ui.handleForbiddenDoor($door)
+    }
 
     this.openedDoors[$door.id] = true
     saveOpenedDoors(this.openedDoors)

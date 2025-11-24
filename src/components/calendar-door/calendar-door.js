@@ -116,6 +116,12 @@ class CalendarDoor extends HTMLElement {
     return allowOpen(this.config.label)
   }
 
+  shake () {
+    this.$doorFrame.classList.remove('shake')
+    void this.offsetWidth // force reflow to restart CSS animation
+    this.$doorFrame.classList.add('shake')
+  }
+
   open () {
     const width = this.config.size.width
     this.$doorFrame.style.transform = `translateX(-${width - 2}px)`

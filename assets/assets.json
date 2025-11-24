@@ -71,18 +71,23 @@
   "audio": [
     {
       "name": "door",
-      "filename": "door.mp3",
-      "volume": 0.1
+      "filename": "door-with-bells.mp3",
+      "volume": 0.2
     },
     {
       "name": "wind",
       "filename": "wind-fade.mp3",
-      "volume": 0.3
+      "volume": 0.4
     },
     {
       "name": "click",
       "filename": "option-select.mp3",
       "volume": 0.1
+    },
+    {
+      "name": "forbidden",
+      "filename": "forbidden.mp3",
+      "volume": 2.0
     }
   ],
   "animations": [

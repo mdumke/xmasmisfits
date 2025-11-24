@@ -24,15 +24,14 @@
 - [x] support animations
 - [x] remove title sliding
 - [x] disable space-button panning
-- [ ] feedback when trying to open future doors
+- [x] feedback when trying to open future doors
+- [ ] moving clouds
 - [ ] remember last scroll position
 - [ ] use arrows for fullscreen icon
 - [ ] is there a way to reduce yt ads?
-- [ ] moving clouds
 - [ ] loudness / speaker test
 - [ ] js-disabled message
 - [ ] put placeholder image in media player (w/shadow)
-- [ ] fade master gain on cancel
 - [ ] add full ambient soundscape
 - [ ] build a title page
 - [ ] settings section with storage reset and sounds on/off
@@ -46,12 +45,12 @@
 
 - [ ] hide snowflakes behind clouds layer
 - [ ] add navigation indicators to pan container
-- [ ] glow behind active unopened doors
 - [ ] load different images depending on resolution
 - [ ] estimate network connection speed
 - [ ] find a more appropriate font
 - [ ] HTTP 2
 - [ ] strategy for contact / copyright / cookies
+- [ ] fade master gain on cancel
 
 ## production
 
@@ -120,3 +119,6 @@
 - [ ] yt adds -> recherchier nochmal
 - [ ] sound effects and ambience recordings
 - [ ] texte / rundschreiben
+- [ ] descriptions / title for videos (?)
+- [ ] who found the video (?)
+- [ ] glow behind active unopened doors (?)

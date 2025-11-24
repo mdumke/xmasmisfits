@@ -76,6 +76,11 @@ class UI {
     return $door
   }
 
+  handleForbiddenDoor ($door) {
+    $door.shake()
+    this.playSound('forbidden')
+  }
+
   async playSound (name) {
     if (audioPlayer.isPaused) return
 
