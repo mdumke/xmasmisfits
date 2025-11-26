@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bells for opening doors
 - Remember last scroll position
 - Make initial position adjustable
+- Speaker test
 
 ### Changed
 

@@ -26,21 +26,22 @@
 - [x] disable space-button panning
 - [x] feedback when trying to open future doors
 - [x] remember last scroll position
+- [x] loudness / speaker test
 - [ ] moving clouds
-- [ ] yt iframe 1px smaller
+- [ ] do we still need the preload?
 - [ ] use arrows for fullscreen icon
-- [ ] is there a way to reduce yt ads?
-- [ ] loudness / speaker test
+- [ ] load thumbnails before opening calendar
 - [ ] js-disabled message
 - [ ] put placeholder image in media player (w/shadow)
 - [ ] add full ambient soundscape
+- [ ] door 24 with credits, greetings and full image
 - [ ] build a title page
-- [ ] settings section with storage reset and sounds on/off
 - [ ] move css for title state into html
 - [ ] error handling
 - [ ] create a PWA
 - [ ] audio: loudness adjustments
-- [ ] optimize media for download
+- [ ] is there a way to reduce yt ads?
+- [ ] ensure timezone / day switch works
 
 ## backlog
 
@@ -68,7 +69,7 @@
 - [x] show content thumbnails while curtain is lifting
 - [x] don't play obsolete sound effects after audio resume
 - [x] await package loading before starting animations
-- [ ] ensure timezone / day switch works
+- [ ] ambience is back on after re-focus, even if off before
 
 ## refactorings
 
@@ -107,7 +108,7 @@
 - [x] All items will be videos, streamed via youtube
 - [x] Weirdly long screens see the calandar image at the top, not centered
 - [x] No doors on top of animations
-- [ ] does a speaker test make sense?
+- [x] a speaker test makes sense
 
 ## discussion
 
@@ -117,7 +118,10 @@
 - [x] keep fullscreen button? yes
 - [x] keep audio button? yes
 - [ ] name / domain -> gerne, titel überlegen
-- [ ] yt adds -> recherchier nochmal
+- [ ] yt adds
+  - werden gezeigt, wenn der channel monetarisiert
+  - entweder in eigenen channel
+  - oder sowas wie vimeo
 - [ ] sound effects and ambience recordings
 - [ ] texte / rundschreiben
 - [ ] descriptions / title for videos (?)

@@ -13,9 +13,22 @@
     <div class="screen-wrapper">
 
       <div id="title-screen" class="screen title-screen">
-        <h1>Advent 2025</h1>
-        <button id="start-button" class="start-button">Start</button>
-        <progress-bar id="progress-bar" class="progress-bar hide"></progress-bar>
+        <div class="title-content">
+          <h1>Advent 2025</h1>
+          <div id="interaction-area">
+            <div class="title-buttons">
+              <div class="labeled-button">
+                <label for="speaker-button">Speaker Test</label>
+                <button id="speaker-button" class="round-button" disabled></button>
+              </div>
+              <div id="start-button" class="labeled-button hide">
+                <label for="start-button">Go to Calendar</label>
+                <button class="round-button"></button>
+              </div>
+            </div>
+          </div>
+          <progress-bar id="progress-bar" class="progress-bar hide"></progress-bar>
+        </div>
       </div>
 
       <div class="screen calendar-screen">

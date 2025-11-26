@@ -33,7 +33,7 @@ export class CalendarContext {
     ui.reopenDoors(this.openedDoors)
     ui.restoreLastPosition()
     ui.startSnow(400)
-    await audioPlayer.unlock()
+    await audioPlayer.decodeBuffers()
     ui.playAmbience()
   }
 

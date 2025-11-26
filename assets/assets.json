@@ -68,6 +68,15 @@
       "src": "https://www.youtube-nocookie.com/embed/zdef5wZymnk?si=QE--7g9BRntQUP6d"
     }
   },
+  "title": {
+    "audio": [
+      {
+        "name": "speaker-test",
+        "filename": "bells.mp3",
+        "volume": 0.3
+      }
+    ]
+  },
   "audio": [
     {
       "name": "door",

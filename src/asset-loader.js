@@ -4,6 +4,7 @@ const ASSET_MAPPING_PATH = 'assets.json'
 const IMAGE_BASE_PATH = 'images'
 
 export const STAGE_INITIAL = 'stage-initial'
+export const STAGE_TITLE_ASSETS = 'stage-title-assets'
 export const STAGE_CALENDAR_ASSETS = 'stage-calendar-assets'
 export const STAGE_PACKAGE_THUMBNAILS = 'stage-package-thumbnails'
 export const STAGE_COMPLETE = 'stage-complete'
@@ -37,6 +38,7 @@ class AssetLoader {
 
   async run () {
     await this.loadAssetMapping()
+    await this.loadTitleAssets()
     await this.preloadCalendarAssets()
     await this.preloadPackageThumbnails()
     this.loadingStage = STAGE_COMPLETE
@@ -50,6 +52,25 @@ class AssetLoader {
   unregisterProgressCallback (key) {
     this.progressCallbacks = this.progressCallbacks.filter(
       item => item.key !== key
+    )
+  }
+
+  async loadTitleAssets () {
+    this.loadingStage = STAGE_TITLE_ASSETS
+
+    const audioFiles = this._assetMapping.title.audio
+
+    let total = audioFiles.length
+    let count = 0
+
+    await Promise.all(
+      audioFiles.map(async ({ name, filename, volume }) => {
+        const buffer = await this.loadAudio(`audio/${filename}`)
+        audioPlayer.register(name, buffer)
+        count++
+        this.audioInfo[name] = { volume }
+        this.onProgress(count, total)
+      })
     )
   }
 

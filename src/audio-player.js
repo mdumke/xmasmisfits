@@ -1,5 +1,6 @@
 class AudioPlayer {
   constructor () {
+    this.locked = true
     this.audioCtx = null
     this.masterGain = null
     this.arrayBuffers = {}
@@ -18,6 +19,7 @@ class AudioPlayer {
     this.masterGain.gain.value = 1.0
     this.masterGain.connect(this.audioCtx.destination)
     await this.audioCtx.resume()
+    await this.decodeBuffers()
     this.locked = false
   }
 
@@ -52,7 +54,6 @@ class AudioPlayer {
 
       source.connect(gain)
       gain.connect(this.masterGain)
-
       source.start(0)
 
       this.activeSources[key][name] = { source, gain }
@@ -112,12 +113,17 @@ class AudioPlayer {
       await this.audioCtx.resume()
     }
 
-    await Promise.all(
-      Object.entries(this.arrayBuffers).map(async ([name, arrayBuffer]) => {
-        const audioBuffer = await this.audioCtx.decodeAudioData(arrayBuffer)
-        this.audioBuffers[name] = audioBuffer
-      })
-    )
+    try {
+      await Promise.all(
+        Object.entries(this.arrayBuffers).map(async ([name, arrayBuffer]) => {
+          const bufferCopy = arrayBuffer.slice(0)
+          const audioBuffer = await this.audioCtx.decodeAudioData(bufferCopy)
+          this.audioBuffers[name] = audioBuffer
+        })
+      )
+    } catch (error) {
+      return `Error during audio decoding: ${error.message}`
+    }
 
     this.arrayBuffers = {}
   }

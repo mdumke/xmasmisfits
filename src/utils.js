@@ -17,3 +17,12 @@ export const allowOpen = doorLabel => {
 
   return !isNaN(day) && day <= maxDay
 }
+
+export const debug = message => {
+  const $debug = document.getElementById('debug')
+  if ($debug) {
+    $debug.textContent = message
+  } else {
+    console.log('[Debug]', message)
+  }
+}
