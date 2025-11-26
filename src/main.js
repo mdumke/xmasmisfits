@@ -11,6 +11,7 @@ import './components/animation-sequence/animation-sequence.js'
 
 import { contextManager } from './contexts/context-manager.js'
 import { TitleContext } from './contexts/title-context.js'
+import { audioPlayer } from './audio-player.js'
 
 const main = () => {
   if (location.hash === '#reset') {
@@ -21,3 +22,12 @@ const main = () => {
 }
 
 document.addEventListener('DOMContentLoaded', main, { once: true })
+
+const initAudio = async () => {
+  audioPlayer.init()
+  window.removeEventListener('pointerdown', initAudio)
+  window.removeEventListener('keydown', initAudio)
+}
+
+window.addEventListener('pointerdown', initAudio)
+window.addEventListener('keydown', initAudio)

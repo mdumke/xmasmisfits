@@ -77,7 +77,8 @@ class AssetLoader {
 
     await Promise.all(
       audioFiles.map(async ({ name, filename, volume }) => {
-        await audioPlayer.load(name, `audio/${filename}`, { volume })
+        const buffer = await this.loadAudio(`audio/${filename}`)
+        audioPlayer.register(name, buffer)
         count++
         this.audioInfo[name] = { volume }
         this.onProgress(count, total)
@@ -141,6 +142,13 @@ class AssetLoader {
         reject(new Error(`[AssetLoader] failed to load image: ${src}`))
       img.src = src
     })
+  }
+
+  // Loads audio files and converts them to AudioBuffers.
+  // This can be done even when the AudioContext is suspended.
+  async loadAudio (src) {
+    const raw = await fetch(src)
+    return await raw.arrayBuffer()
   }
 
   async loadAssetMapping () {

@@ -2,11 +2,23 @@ class AudioPlayer {
   constructor () {
     this.audioCtx = null
     this.masterGain = null
-    this.buffers = {}
+    this.arrayBuffers = {}
+    this.audioBuffers = {}
     this.activeSources = {
       sounds: {},
       tracks: {}
     }
+  }
+
+  async init () {
+    if (this.audioCtx) return
+
+    this.audioCtx = new AudioContext()
+    this.masterGain = this.audioCtx.createGain()
+    this.masterGain.gain.value = 1.0
+    this.masterGain.connect(this.audioCtx.destination)
+    await this.audioCtx.resume()
+    this.locked = false
   }
 
   get isPaused () {
@@ -32,7 +44,7 @@ class AudioPlayer {
 
     return new Promise(resolve => {
       const source = this.audioCtx.createBufferSource()
-      source.buffer = this.buffers[name]
+      source.buffer = this.audioBuffers[name]
       source.loop = loop
 
       const gain = this.audioCtx.createGain()
@@ -62,24 +74,8 @@ class AudioPlayer {
     entry.source.stop()
   }
 
-  // Loads audio files and converts them to AudioBuffers.
-  // This can be done even when the AudioContext is suspended.
-  async load (name, src) {
-    const raw = await fetch(src)
-    const buffer = await raw.arrayBuffer()
-    this.buffers[name] = buffer
-  }
-
-  async unlock () {
-    if (this.audioCtx) return
-
-    this.audioCtx = new AudioContext()
-    this.masterGain = this.audioCtx.createGain()
-    this.masterGain.gain.value = 1.0
-    this.masterGain.connect(this.audioCtx.destination)
-    await this.audioCtx.resume()
-    await this.decodeBuffers()
-    this.locked = false
+  register (name, arrayBuffer) {
+    this.arrayBuffers[name] = arrayBuffer
   }
 
   async pause () {
@@ -113,17 +109,17 @@ class AudioPlayer {
     }
 
     if (this.audioCtx.state !== 'running') {
-      return console.warn(
-        '[AudioPlayer] cannot decode: audio context not running'
-      )
+      await this.audioCtx.resume()
     }
 
     await Promise.all(
-      Object.entries(this.buffers).map(async ([name, arrayBuffer]) => {
+      Object.entries(this.arrayBuffers).map(async ([name, arrayBuffer]) => {
         const audioBuffer = await this.audioCtx.decodeAudioData(arrayBuffer)
-        this.buffers[name] = audioBuffer
+        this.audioBuffers[name] = audioBuffer
       })
     )
+
+    this.arrayBuffers = {}
   }
 }
 
