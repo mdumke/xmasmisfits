@@ -33,6 +33,8 @@
 - [x] gh pages deployment
 - [x] icons for title buttons
 - [x] remove sound check
+- [x] use start image in title screen
+- [ ] show video titles
 - [ ] build a title page
 - [ ] add full ambient soundscape
 - [ ] put placeholder image in media player (w/shadow)
