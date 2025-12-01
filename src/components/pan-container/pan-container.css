@@ -27,4 +27,12 @@ main {
   &::-webkit-scrollbar {
     display: none;
   }
+
+  /* Disable scroll chaining and enable touch panning. */
+  /* Unfortunately, this will prevent users from reloading */
+  /* page via pull-to-refresh on mobile, but it seems to be */
+  /* the only way to get proper panning behavior on ios. */
+  overscroll-behavior: contain; /* prevent scroll chaining to viewport */
+  touch-action: none; /* let pointer events control panning */
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
 }
