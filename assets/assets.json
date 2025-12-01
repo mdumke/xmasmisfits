@@ -508,6 +508,30 @@
     },
     {
       "filenames": [
+        "animations/angel-a.webp",
+        "animations/angel-b.webp"
+      ],
+      "position": {
+        "left": 622,
+        "top": 52
+      },
+      "size": {
+        "width": 300,
+        "height": 248
+      },
+      "sequence": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "filenames": [
         "animations/dog-a.webp",
         "animations/dog-b.webp"
       ],

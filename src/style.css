@@ -87,7 +87,7 @@ html {
       align-self: self-start;
       display: inline-block;
       will-change: transform;
-      animation: angel-bob 2s ease-in-out infinite;
+      animation: angel-bob 2s linear infinite;
     }
 
     .title-angel {
@@ -157,8 +157,8 @@ snow-overlay {
   .witch {
     display: block;
     position: absolute;
-    left: 1228px;
-    top: 362px;
+    left: 1195px;
+    top: 255px;
     z-index: 2;
     user-select: none;
     pointer-events: none;
@@ -226,13 +226,13 @@ fullscreen-toggle {
     transform: translateY(0);
   }
   25% {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
   }
   50% {
     transform: translateY(0);
   }
   75% {
-    transform: translateY(2px);
+    transform: translateY(3px);
   }
   100% {
     transform: translateY(0);
