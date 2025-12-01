@@ -37,20 +37,19 @@
 - [x] build a title page
 - [x] include animations
 - [ ] favicon
-- [ ] engel animation
-- [ ] move with in from of moon
-- [ ] show video titles
+- [x] engel animation
 - [ ] add full ambient soundscape
-- [ ] store aduio settings in local storgae
-- [ ] js-disabled message
-- [ ] moving clouds
-- [ ] error handling
-- [ ] audio: loudness adjustments
 
 ## backlog
 
 - [ ] hide snowflakes behind clouds layer
 - [ ] cache by rendering full images hidden
+- [ ] error handling
+- [ ] audio: loudness adjustments
+- [ ] js-disabled message
+- [ ] moving clouds
+- [ ] store aduio settings in local storgae
+- [ ] show video titles
 - [ ] add navigation indicators to pan container
 - [ ] door 24 with credits, greetings and full image
 - [ ] put placeholder image in media player (w/shadow)
@@ -68,7 +67,7 @@
 
 ## production
 
-- [ ] get a domain
+- [x] get a domain
 - [ ] disable opening doors in november
 
 ## bugs
@@ -83,7 +82,7 @@
 - [x] await package loading before starting animations
 - [x] fix disallowed audio context start message
 - [x] ambience is back on after re-focus, even if off before
-- [ ] ipad cannot pan vertically!
+- [x] ipad cannot pan vertically!
 
 ## refactorings
 
@@ -134,10 +133,9 @@
   - werden gezeigt, wenn der channel monetarisiert
   - entweder in eigenen channel
   - oder sowas wie vimeo
-- [ ] xmasmisfits.netlify.app
+- [x] xmasmisfits.netlify.app
 - [ ] sound effects and ambience recordings
 - [ ] texte / rundschreiben
 - [ ] descriptions / title for videos (?)
   - in media player or on door-inside
 - [ ] info door (?)
-- [ ] titles for vidoes in player (?)
