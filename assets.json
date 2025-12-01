@@ -382,17 +382,9 @@
       "thumbnail": "packages/tempest.webp",
       "src": "https://www.youtube-nocookie.com/embed/aTDOFaAcEyc?si=0mY70JjhQnrrckW4"
     },
-    "gabriel": {
-      "thumbnail": "packages/gabriel.webp",
-      "src": "https://www.youtube-nocookie.com/embed/ga5Bo4YdgH4?si=FAsw8AjeM4CXAZ1o"
-    },
     "noname": {
       "thumbnail": "packages/noname.webp",
       "src": "https://www.youtube-nocookie.com/embed/K58JYXhb4YA?si=HQFMptE588M0K-HO"
-    },
-    "lupe": {
-      "thumbnail": "packages/lupe.webp",
-      "src": "https://www.youtube-nocookie.com/embed/LMZbLD97338?si=3zmU_DOLjyKdque9"
     },
     "roots": {
       "thumbnail": "packages/roots.webp",
@@ -402,17 +394,9 @@
       "thumbnail": "packages/chemistry.webp",
       "src": "https://www.youtube-nocookie.com/embed/4knC--bW79A?si=dkeaGGzQ1zBx1AXa"
     },
-    "tpain": {
-      "thumbnail": "packages/tpain.webp",
-      "src": "https://www.youtube-nocookie.com/embed/hzPICG7PO48?si=-fPQTldNt3nPgteg"
-    },
     "tom": {
       "thumbnail": "packages/tom.webp",
       "src": "https://www.youtube-nocookie.com/embed/EznGGYQ-Tv8?si=EijN8aF4lkRR5-sB"
-    },
-    "townes": {
-      "thumbnail": "packages/townes.webp",
-      "src": "https://www.youtube-nocookie.com/embed/v-Rq-4spRz4?si=UGSLGh3-7cWCJGN2"
     },
     "stevie": {
       "thumbnail": "packages/stevie.webp",
@@ -446,10 +430,6 @@
       "thumbnail": "packages/deniece.webp",
       "src": "https://www.youtube-nocookie.com/embed/EEmS1isaAcg?si=QSMq1s1-IVEWVKnP"
     },
-    "lucky": {
-      "thumbnail": "packages/lucky.webp",
-      "src": "https://www.youtube-nocookie.com/embed/x6AX5Iy6dDM?si=gz4WWf_iLHaxy_Wl"
-    },
     "burnside": {
       "thumbnail": "packages/burnside.webp",
       "src": "https://www.youtube.com/embed/K_DOnKJ232M?si=txQ3OCdU1lPRJgvm"
@@ -462,21 +442,9 @@
       "thumbnail": "packages/rydeen.webp",
       "src": "https://www.youtube-nocookie.com/embed/7AgU60iIUfc?si=hxUivRGbzd8tHm4X"
     },
-    "penny": {
-      "thumbnail": "packages/penny.webp",
-      "src": "https://www.youtube-nocookie.com/embed/E8INvEUUEMw?si=tGn9PVl413lZS_1W"
-    },
     "sister": {
       "thumbnail": "packages/sister.webp",
       "src": "https://www.youtube-nocookie.com/embed/Y9a49oFalZE?si=J5304a9QBfegsFFS"
-    },
-    "yours": {
-      "thumbnail": "packages/yours.webp",
-      "src": "https://www.youtube-nocookie.com/embed/BMlNTqeJoNQ?si=1NnFUCTMrUgyZOpL"
-    },
-    "wonder": {
-      "thumbnail": "packages/wonder.webp",
-      "src": "https://www.youtube-nocookie.com/embed/Wfr28bc_Ld0?si=OAUu86m8JUfPdiJ4"
     },
     "etta": {
       "thumbnail": "packages/etta.webp",
