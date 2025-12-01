@@ -4,15 +4,14 @@
  */
 
 export const allowOpen = doorLabel => {
-  return true
-  // const now = new Date()
-  // const year = now.getFullYear()
-  // if (year > 2025) return true
+  const now = new Date()
+  const year = now.getFullYear()
+  if (year > 2025) return true
 
-  // const maxDay = now.getDate()
-  // const day = parseInt(doorLabel, 10)
+  const maxDay = now.getDate()
+  const day = parseInt(doorLabel, 10)
 
-  // return !isNaN(day) && day <= maxDay
+  return !isNaN(day) && day <= maxDay
 }
 
 export const debug = message => {
