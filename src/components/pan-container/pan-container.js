@@ -50,32 +50,42 @@ class PanContainer extends HTMLElement {
 
   startPan = e => {
     if (e.target.closest('[data-interactive]')) return
-
     this.isDown = true
     this.$container.classList.add('active')
     this.startX = e.clientX
     this.startY = e.clientY
     this.scrollLeft = this.$container.scrollLeft
     this.scrollTop = this.$container.scrollTop
-    this.$container.setPointerCapture(e.pointerId)
+    // For native scrolling, pointer capture is not needed; comment it out
+    // this.$container.setPointerCapture(e.pointerId)
   }
 
   updatePan = e => {
+    // With native scrolling, do not manually set scrollLeft/Top.
+    // Keep this if you still want desktop mouse-drag behavior,
+    // but on touch devices Safari won't deliver pointermove reliably.
     if (!this.isDown) return
-
-    e.preventDefault()
+    // e.preventDefault() can block native scroll; remove it for iOS touch
+    // e.preventDefault()
     const x = e.clientX
     const y = e.clientY
     const walkX = x - this.startX
     const walkY = y - this.startY
-    this.$container.scrollLeft = this.scrollLeft - walkX
-    this.$container.scrollTop = this.scrollTop - walkY
+    // On touch, let native scrolling do the work.
+    // On desktop mouse, you may still want manual panning:
+    if (e.pointerType === 'mouse') {
+      this.$container.scrollLeft = this.scrollLeft - walkX
+      this.$container.scrollTop = this.scrollTop - walkY
+    }
   }
 
   stopPan = e => {
     this.isDown = false
     this.$container.classList.remove('active')
-    this.$container.releasePointerCapture(e.pointerId)
+    // this.$container.releasePointerCapture(e.pointerId)
+  }
+
+  onScroll = () => {
     this.dispatchPanUpdate()
   }
 
@@ -97,6 +107,7 @@ class PanContainer extends HTMLElement {
     this.$container.addEventListener('pointerup', this.stopPan)
     this.$container.addEventListener('pointercancel', this.stopPan)
     this.$container.addEventListener('pointermove', this.updatePan)
+    this.$container.addEventListener('scroll', this.onScroll)
   }
 
   removeListeners () {
@@ -104,6 +115,7 @@ class PanContainer extends HTMLElement {
     this.$container.removeEventListener('pointerup', this.stopPan)
     this.$container.removeEventListener('pointercancel', this.stopPan)
     this.$container.removeEventListener('pointermove', this.updatePan)
+    this.$container.removeEventListener('scroll', this.onScroll)
   }
 }
 

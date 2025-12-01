@@ -32,7 +32,7 @@ main {
   /* Unfortunately, this will prevent users from reloading */
   /* page via pull-to-refresh on mobile, but it seems to be */
   /* the only way to get proper panning behavior on ios. */
-  overscroll-behavior: contain; /* prevent scroll chaining to viewport */
-  touch-action: pan-x pan-y; /* allow both axes pointer-driven */
-  -webkit-overflow-scrolling: auto; /* iOS smooth scrolling */
+  overscroll-behavior: contain; /* keep scroll in element */
+  touch-action: pan-x pan-y;    /* let Safari do native pan */
+  -webkit-overflow-scrolling: auto;
 }

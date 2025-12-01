@@ -36,8 +36,12 @@
 - [x] use start image in title screen
 - [x] build a title page
 - [x] include animations
+- [ ] favicon
+- [ ] engel animation
+- [ ] move with in from of moon
 - [ ] show video titles
 - [ ] add full ambient soundscape
+- [ ] store aduio settings in local storgae
 - [ ] js-disabled message
 - [ ] moving clouds
 - [ ] error handling
@@ -79,6 +83,7 @@
 - [x] await package loading before starting animations
 - [x] fix disallowed audio context start message
 - [x] ambience is back on after re-focus, even if off before
+- [ ] ipad cannot pan vertically!
 
 ## refactorings
 
@@ -129,11 +134,10 @@
   - werden gezeigt, wenn der channel monetarisiert
   - entweder in eigenen channel
   - oder sowas wie vimeo
+- [ ] xmasmisfits.netlify.app
 - [ ] sound effects and ambience recordings
 - [ ] texte / rundschreiben
 - [ ] descriptions / title for videos (?)
   - in media player or on door-inside
-- [ ] who found the video (?)
 - [ ] info door (?)
-- [ ] xmasmisfits.de (?)
 - [ ] titles for vidoes in player (?)
