@@ -168,6 +168,7 @@ html {
   will-change: transform;
   user-select: none;
   -webkit-user-drag: none;
+  cursor: pointer;
 }
 
 snow-overlay {
